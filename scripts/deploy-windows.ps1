@@ -29,11 +29,18 @@ if (!(Get-Command npm -ErrorAction SilentlyContinue)) {
   throw "Node.js/npm is not installed or is not available in PATH."
 }
 
+Set-Location $AppPath
+
 if (!(Test-Path (Join-Path $AppPath ".git"))) {
-  git clone $RepoUrl $AppPath
+  git init
 }
 
-Set-Location $AppPath
+$originUrl = git remote get-url origin 2>$null
+if ($LASTEXITCODE -eq 0) {
+  git remote set-url origin $RepoUrl
+} else {
+  git remote add origin $RepoUrl
+}
 
 git fetch origin $Branch
 git reset --hard "origin/$Branch"

@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -52,11 +52,19 @@ jobs:
                 New-Item -ItemType Directory -Force $appPath | Out-Null
               }
 
+              Set-Location $appPath
+
               if (!(Test-Path (Join-Path $appPath '.git'))) {
-                git clone $repoUrl $appPath
+                git init
               }
 
-              Set-Location $appPath
+              $originUrl = git remote get-url origin 2>$null
+              if ($LASTEXITCODE -eq 0) {
+                git remote set-url origin $repoUrl
+              } else {
+                git remote add origin $repoUrl
+              }
+
               git fetch origin main
               git reset --hard origin/main
               powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\deploy-windows.ps1 -AppPath $appPath -RepoUrl $repoUrl -Branch main -AppName Calldeals
