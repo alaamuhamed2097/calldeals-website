@@ -1,0 +1,63 @@
+name: Deploy to Windows Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.WINDOWS_HOST }}
+          username: ${{ secrets.WINDOWS_USERNAME }}
+          key: ${{ secrets.WINDOWS_SSH_KEY }}
+          port: ${{ secrets.WINDOWS_SSH_PORT || 22 }}
+          script_stop: true
+          command_timeout: 30m
+          script: |
+            powershell -NoProfile -ExecutionPolicy Bypass -Command "
+              $ErrorActionPreference = 'Stop'
+              $appPath = '${{ secrets.WINDOWS_APP_PATH }}'
+              $repoUrl = 'https://github.com/alaamuhamed2097/calldeals-website.git'
+
+              if (!(Test-Path $appPath)) {
+                New-Item -ItemType Directory -Force $appPath | Out-Null
+              }
+
+              if (!(Test-Path (Join-Path $appPath '.git'))) {
+                git clone $repoUrl $appPath
+              }
+
+              Set-Location $appPath
+              git fetch origin main
+              git reset --hard origin/main
+              powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\deploy-windows.ps1 -AppPath $appPath -RepoUrl $repoUrl -Branch main -AppName calldeals
+            "
