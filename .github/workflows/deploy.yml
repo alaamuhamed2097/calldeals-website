@@ -30,42 +30,17 @@ jobs:
   deploy:
     name: Deploy
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Windows, X64, calldeals]
 
     steps:
-      - name: Deploy over SSH
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.WINDOWS_HOST }}
-          username: ${{ secrets.WINDOWS_USERNAME }}
-          key: ${{ secrets.WINDOWS_SSH_KEY }}
-          port: ${{ secrets.WINDOWS_SSH_PORT || 22 }}
-          script_stop: true
-          command_timeout: 30m
-          script: |
-            powershell -NoProfile -ExecutionPolicy Bypass -Command "
-              $ErrorActionPreference = 'Stop'
-              $appPath = if ('${{ secrets.WINDOWS_APP_PATH }}') { '${{ secrets.WINDOWS_APP_PATH }}' } else { 'C:\0ALI\WebSites\Calldeals' }
-              $repoUrl = 'https://github.com/alaamuhamed2097/calldeals-website.git'
+      - name: Checkout
+        uses: actions/checkout@v4
 
-              if (!(Test-Path $appPath)) {
-                New-Item -ItemType Directory -Force $appPath | Out-Null
-              }
-
-              Set-Location $appPath
-
-              if (!(Test-Path (Join-Path $appPath '.git'))) {
-                git init
-              }
-
-              $originUrl = git remote get-url origin 2>$null
-              if ($LASTEXITCODE -eq 0) {
-                git remote set-url origin $repoUrl
-              } else {
-                git remote add origin $repoUrl
-              }
-
-              git fetch origin main
-              git reset --hard origin/main
-              powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\deploy-windows.ps1 -AppPath $appPath -RepoUrl $repoUrl -Branch main -AppName Calldeals
-            "
+      - name: Deploy on Windows server
+        shell: powershell
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\deploy-windows.ps1 `
+            -AppPath "C:\0ALI\WebSites\Calldeals" `
+            -RepoUrl "https://github.com/alaamuhamed2097/calldeals-website.git" `
+            -Branch "main" `
+            -AppName "Calldeals"
