@@ -73,17 +73,28 @@ if (!(Get-Command pm2 -ErrorAction SilentlyContinue)) {
   if ($LASTEXITCODE -ne 0) {
     throw "Failed to install PM2 globally."
   }
+  $npmPrefix = (npm config get prefix).Trim()
+  $env:PATH = "$npmPrefix;$env:PATH"
+}
+
+$pm2 = (Get-Command pm2 -ErrorAction SilentlyContinue)?.Source
+if (!$pm2) {
+  $npmPrefix = (npm config get prefix).Trim()
+  $pm2 = Join-Path $npmPrefix "pm2.cmd"
+  if (!(Test-Path $pm2)) {
+    throw "pm2 executable not found after install. Expected at: $pm2"
+  }
 }
 
 $env:NODE_ENV = "production"
 
-$pm2Description = pm2 describe $AppName 2>$null
+& $pm2 describe $AppName 2>$null | Out-Null
 if ($LASTEXITCODE -eq 0) {
-  pm2 restart $AppName --update-env
+  & $pm2 restart $AppName --update-env
 } else {
-  pm2 start server.js --name $AppName --update-env
+  & $pm2 start server.js --name $AppName --update-env
 }
 
-pm2 save
+& $pm2 save
 
 Write-Host "Deployment completed for $AppName."
