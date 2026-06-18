@@ -77,7 +77,12 @@ if (!(Get-Command pm2 -ErrorAction SilentlyContinue)) {
   $env:PATH = "$npmPrefix;$env:PATH"
 }
 
-$pm2 = (Get-Command pm2 -ErrorAction SilentlyContinue)?.Source
+$pm2Command = Get-Command pm2 -ErrorAction SilentlyContinue
+$pm2 = $null
+if ($pm2Command) {
+  $pm2 = $pm2Command.Source
+}
+
 if (!$pm2) {
   $npmPrefix = (npm config get prefix).Trim()
   $pm2 = Join-Path $npmPrefix "pm2.cmd"
