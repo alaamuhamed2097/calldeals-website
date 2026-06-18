@@ -1,5 +1,5 @@
 param(
-  [string]$AppPath = "C:\sites\calldeals-website",
+  [string]$AppPath = "C:\0ALI\WebSites\Calldeals",
   [string]$RepoUrl = "https://github.com/alaamuhamed2097/calldeals-website.git",
   [string]$Branch = "main",
   [string]$AppName = "Calldeals"
@@ -7,7 +7,11 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$DeployTemp = Join-Path $env:TEMP "calldeals-website-deploy"
+if (!(Test-Path $AppPath)) {
+  New-Item -ItemType Directory -Force $AppPath | Out-Null
+}
+
+$DeployTemp = Join-Path $AppPath ".deploy-temp"
 $NpmCache = Join-Path $DeployTemp "npm-cache"
 New-Item -ItemType Directory -Force $DeployTemp, $NpmCache | Out-Null
 
@@ -23,10 +27,6 @@ if (!(Get-Command git -ErrorAction SilentlyContinue)) {
 
 if (!(Get-Command npm -ErrorAction SilentlyContinue)) {
   throw "Node.js/npm is not installed or is not available in PATH."
-}
-
-if (!(Test-Path $AppPath)) {
-  New-Item -ItemType Directory -Force $AppPath | Out-Null
 }
 
 if (!(Test-Path (Join-Path $AppPath ".git"))) {

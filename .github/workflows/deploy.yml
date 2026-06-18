@@ -45,7 +45,7 @@ jobs:
           script: |
             powershell -NoProfile -ExecutionPolicy Bypass -Command "
               $ErrorActionPreference = 'Stop'
-              $appPath = '${{ secrets.WINDOWS_APP_PATH }}'
+              $appPath = if ('${{ secrets.WINDOWS_APP_PATH }}') { '${{ secrets.WINDOWS_APP_PATH }}' } else { 'C:\0ALI\WebSites\Calldeals' }
               $repoUrl = 'https://github.com/alaamuhamed2097/calldeals-website.git'
 
               if (!(Test-Path $appPath)) {
