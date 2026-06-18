@@ -18,7 +18,6 @@ New-Item -ItemType Directory -Force $DeployTemp, $NpmCache | Out-Null
 $env:TEMP = $DeployTemp
 $env:TMP = $DeployTemp
 $env:npm_config_cache = $NpmCache
-$env:NODE_ENV = "production"
 $env:NEXT_TELEMETRY_DISABLED = "1"
 
 if (!(Get-Command git -ErrorAction SilentlyContinue)) {
@@ -45,10 +44,24 @@ if ($remotes -contains "origin") {
 }
 
 git fetch origin $Branch
-git reset --hard "origin/$Branch"
+if ($LASTEXITCODE -ne 0) {
+  throw "git fetch failed."
+}
 
-npm ci
+git reset --hard "origin/$Branch"
+if ($LASTEXITCODE -ne 0) {
+  throw "git reset failed."
+}
+
+npm ci --include=dev
+if ($LASTEXITCODE -ne 0) {
+  throw "npm ci failed."
+}
+
 npm run build
+if ($LASTEXITCODE -ne 0) {
+  throw "npm run build failed."
+}
 
 if (!(Test-Path (Join-Path $AppPath "server.js"))) {
   throw "server.js was not found in $AppPath. This file is intentionally excluded from Git and must exist on the server."
@@ -57,6 +70,8 @@ if (!(Test-Path (Join-Path $AppPath "server.js"))) {
 if (!(Get-Command pm2 -ErrorAction SilentlyContinue)) {
   throw "PM2 is not installed. Install it on the server with: npm install -g pm2"
 }
+
+$env:NODE_ENV = "production"
 
 $pm2Description = pm2 describe $AppName 2>$null
 if ($LASTEXITCODE -eq 0) {
