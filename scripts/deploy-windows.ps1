@@ -2,10 +2,20 @@ param(
   [string]$AppPath = "C:\sites\calldeals-website",
   [string]$RepoUrl = "https://github.com/alaamuhamed2097/calldeals-website.git",
   [string]$Branch = "main",
-  [string]$AppName = "calldeals"
+  [string]$AppName = "Calldeals"
 )
 
 $ErrorActionPreference = "Stop"
+
+$DeployTemp = Join-Path $env:TEMP "calldeals-website-deploy"
+$NpmCache = Join-Path $DeployTemp "npm-cache"
+New-Item -ItemType Directory -Force $DeployTemp, $NpmCache | Out-Null
+
+$env:TEMP = $DeployTemp
+$env:TMP = $DeployTemp
+$env:npm_config_cache = $NpmCache
+$env:NODE_ENV = "production"
+$env:NEXT_TELEMETRY_DISABLED = "1"
 
 if (!(Get-Command git -ErrorAction SilentlyContinue)) {
   throw "Git is not installed or is not available in PATH."
@@ -35,7 +45,13 @@ if (!(Get-Command pm2 -ErrorAction SilentlyContinue)) {
   throw "PM2 is not installed. Install it on the server with: npm install -g pm2"
 }
 
-pm2 startOrRestart ecosystem.config.cjs --only $AppName --update-env
+$pm2Description = pm2 describe $AppName 2>$null
+if ($LASTEXITCODE -eq 0) {
+  pm2 restart $AppName --update-env
+} else {
+  pm2 start server.js --name $AppName --update-env
+}
+
 pm2 save
 
 Write-Host "Deployment completed for $AppName."
