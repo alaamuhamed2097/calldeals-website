@@ -31,6 +31,8 @@ if (!(Get-Command npm -ErrorAction SilentlyContinue)) {
 
 Set-Location $AppPath
 
+git config --global --add safe.directory $AppPath
+
 if (!(Test-Path (Join-Path $AppPath ".git"))) {
   git init
 }
