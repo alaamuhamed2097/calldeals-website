@@ -22,6 +22,8 @@ if errorlevel 1 (echo git reset failed & exit /b 1)
 call npm ci --include=dev
 if errorlevel 1 (echo npm ci failed & exit /b 1)
 
+if exist ".next" rmdir /s /q ".next"
+
 call npm run build
 if errorlevel 1 (echo npm build failed & exit /b 1)
 
