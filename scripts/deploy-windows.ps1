@@ -68,7 +68,11 @@ if (!(Test-Path (Join-Path $AppPath "server.js"))) {
 }
 
 if (!(Get-Command pm2 -ErrorAction SilentlyContinue)) {
-  throw "PM2 is not installed. Install it on the server with: npm install -g pm2"
+  Write-Host "PM2 not found. Installing globally..."
+  npm install -g pm2
+  if ($LASTEXITCODE -ne 0) {
+    throw "Failed to install PM2 globally."
+  }
 }
 
 $env:NODE_ENV = "production"
