@@ -48,6 +48,10 @@ git reset --hard "origin/$Branch"
 npm ci
 npm run build
 
+if (!(Test-Path (Join-Path $AppPath "server.js"))) {
+  throw "server.js was not found in $AppPath. This file is intentionally excluded from Git and must exist on the server."
+}
+
 if (!(Get-Command pm2 -ErrorAction SilentlyContinue)) {
   throw "PM2 is not installed. Install it on the server with: npm install -g pm2"
 }
