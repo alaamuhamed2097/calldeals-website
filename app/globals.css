@@ -9,3 +9,84 @@ html {
 body {
   text-rendering: optimizeLegibility;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Scroll reveal                                                              */
+/* The hidden initial state is gated behind `.js` (added by the root layout   */
+/* script). If JS is disabled or hasn't run yet, content renders visible —    */
+/* no hidden text for crawlers, no layout shift on hydration.                 */
+/* -------------------------------------------------------------------------- */
+.js [data-reveal] {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+.js [data-reveal="fade-up"] {
+  transform: translateY(24px);
+}
+.js [data-reveal="scale-in"] {
+  transform: scale(0.96);
+}
+.js [data-reveal][data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Rich text (CMS HTML)                                                       */
+/* -------------------------------------------------------------------------- */
+.rich-text {
+  line-height: 1.65;
+}
+.rich-text > * + * {
+  margin-top: 0.85em;
+}
+.rich-text p {
+  margin: 0;
+}
+.rich-text a {
+  color: #0098d2;
+  text-decoration: underline;
+}
+.rich-text strong {
+  font-weight: 600;
+  color: #172f4f;
+}
+.rich-text ul,
+.rich-text ol {
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.rich-text ul {
+  list-style: disc;
+}
+.rich-text ol {
+  list-style: decimal;
+}
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text h4 {
+  font-weight: 700;
+  color: #172f4f;
+  line-height: 1.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-float,
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-scale-in {
+    animation: none !important;
+  }
+}

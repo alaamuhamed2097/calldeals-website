@@ -52,3 +52,82 @@ export interface FooterColumn {
   title: string;
   links: { label: string; href: string }[];
 }
+
+/* -------------------------------------------------------------------------- */
+/* CMS API types (Calldeals Dashboard / .NET)                                 */
+/* ASP.NET Core uses System.Text.Json with the default camelCase policy, so   */
+/* every field below MUST be camelCase to match the wire format exactly.      */
+/* A casing mismatch would silently deserialize to `undefined`.               */
+/* -------------------------------------------------------------------------- */
+
+export interface ApiEnvelope<T> {
+  success: boolean;
+  data: T | null;
+  message: string;
+  errors: string[];
+}
+
+export interface IndustrySummary {
+  id: string;
+  name: string;
+  hashTag: string;
+  image: string | null;
+  subImage: string | null;
+  shortDescription: string;
+  description: string;
+  tags: string | null;
+  selectedSolutionIds: string[];
+}
+
+export interface IndustryFeature {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+}
+
+export interface IndustryTestimonial {
+  id: string;
+  image: string | null;
+  rate: number;
+  review: string;
+  name: string;
+  title: string;
+}
+
+export interface IndustryQuestion {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export interface IndustryPartner {
+  id: string;
+  logo: string;
+  name: string;
+}
+
+export interface IndustryBlog {
+  id: string;
+  image: string | null;
+  title: string;
+  content: string;
+}
+
+export interface IndustrySolution {
+  id: string;
+  name: string;
+  shortDescription: string;
+  description: string;
+  mainImage: string | null;
+}
+
+export interface IndustryDetail {
+  industry: IndustrySummary;
+  partners: IndustryPartner[];
+  features: IndustryFeature[];
+  testimonials: IndustryTestimonial[];
+  questions: IndustryQuestion[];
+  blogs: IndustryBlog[];
+  solutions: IndustrySolution[];
+}

@@ -63,7 +63,19 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
+      <head>
+        {/*
+          Enable the scroll-reveal hidden state only when JS is available.
+          Runs before first paint; if JS is disabled the `.js` class is never
+          added and all content stays visible.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body className="bg-white font-sans text-navy antialiased">{children}</body>
     </html>
   );
