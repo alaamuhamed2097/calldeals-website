@@ -16,6 +16,9 @@ if errorlevel 8 (echo File copy failed & exit /b 1)
 
 cd /d %APP_PATH%
 
+for /f "tokens=*" %%i in ('npm config get prefix') do set NPM_PREFIX=%%i
+set PATH=%NPM_PREFIX%;%PATH%
+
 set NODE_ENV=production
 
 pm2 describe %APP_NAME% >nul 2>&1
