@@ -36,36 +36,65 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="flex flex-col gap-4 rounded-[18px] border border-[#e3edf3] bg-white p-7 shadow-[0_24px_50px_-34px_rgba(20,50,90,0.3)]"
     >
+      <div>
+        <h3 className="mb-1 text-[20px] font-semibold text-navy">Book a Strategy Call</h3>
+        <p className="mb-2 text-[13px] text-slate">
+          We&apos;ll get back to you within one business day. <span className="text-red-500">*</span> indicates a required field.
+        </p>
+      </div>
+
+      {/* First Name / Last Name */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-navy">
-            Full name
+          <label htmlFor="firstName" className="mb-1.5 block text-sm font-medium text-navy">
+            First name <span className="text-red-500">*</span>
           </label>
-          <input id="name" name="name" required className={inputClass} placeholder="Jane Cooper" />
+          <input id="firstName" name="firstName" required className={inputClass} placeholder="First Name" />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-navy">
-            Work email
+          <label htmlFor="lastName" className="mb-1.5 block text-sm font-medium text-navy">
+            Last name
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className={inputClass}
-            placeholder="jane@company.com"
-          />
+          <input id="lastName" name="lastName" className={inputClass} placeholder="Last Name" />
         </div>
       </div>
-      <div>
-        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-navy">
-          Company
-        </label>
-        <input id="company" name="company" className={inputClass} placeholder="Company Inc." />
+
+      {/* Email / Phone */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-navy">
+            E-mail <span className="text-red-500">*</span>
+          </label>
+          <input id="email" name="email" type="email" required className={inputClass} placeholder="youremail@gmail.com" />
+        </div>
+        <div>
+          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-navy">
+            Phone <span className="text-red-500">*</span>
+          </label>
+          <input id="phone" name="phone" type="tel" required className={inputClass} placeholder="+1 (000) 000-0000" />
+        </div>
       </div>
+
+      {/* Company / Job Title */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-navy">
+            Company
+          </label>
+          <input id="company" name="company" className={inputClass} placeholder="Company Name" />
+        </div>
+        <div>
+          <label htmlFor="jobTitle" className="mb-1.5 block text-sm font-medium text-navy">
+            Job Title
+          </label>
+          <input id="jobTitle" name="jobTitle" className={inputClass} placeholder="Job Title" />
+        </div>
+      </div>
+
+      {/* Message */}
       <div>
         <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-navy">
-          What do you need help with?
+          Message <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
@@ -73,14 +102,15 @@ export function ContactForm() {
           rows={4}
           required
           className={`${inputClass} resize-y`}
-          placeholder="Tell us about the roles you're looking to fill…"
+          placeholder="Your message"
         />
       </div>
+
       <button
         type="submit"
-        className="mt-1 inline-flex items-center justify-center rounded-full bg-cyan px-9 py-4 text-[16px] font-semibold text-white shadow-[0_16px_32px_-16px_rgba(0,150,210,0.6)] transition-colors hover:bg-cyan-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2"
+        className="mt-1 inline-flex items-center justify-center rounded-full bg-[#0087A5] px-9 py-4 text-[16px] font-semibold text-white transition-colors hover:bg-[#006E8A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0087A5] focus-visible:ring-offset-2"
       >
-        Send message
+        Get Started
       </button>
     </form>
   );

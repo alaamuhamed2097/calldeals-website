@@ -65,9 +65,9 @@ export function SupportFeatures({
 
           {/* Right: detail card */}
           <Reveal variant="scale-in">
-            <div className="flex flex-col gap-6 rounded-[20px] bg-[linear-gradient(180deg,#00AEEF_0%,#00749f_100%)] px-7 py-9 text-white shadow-[0_30px_60px_-34px_rgba(0,150,210,0.7)] sm:px-9">
+            <div className="flex flex-col gap-6 rounded-[20px] bg-[linear-gradient(180deg,#0087A5_0%,#006E8A_100%)] px-7 py-9 text-white shadow-[0_30px_60px_-34px_rgba(0,100,140,0.7)] sm:px-9">
               <div className="flex items-center gap-5">
-                <span className="flex h-12 w-12 flex-none items-center justify-center rounded-[10px] bg-[#00749f] text-[22px]">
+                <span className="flex h-12 w-12 flex-none items-center justify-center rounded-[10px] bg-[#006E8A] text-[22px]">
                   {current.icon?.trim() || "◆"}
                 </span>
                 <h3 className="text-[clamp(24px,3vw,36px)] font-semibold leading-[1.1]">

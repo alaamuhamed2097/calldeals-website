@@ -6,7 +6,7 @@ export function QuoteCTA() {
       aria-label="Get a quote"
       className="bg-white px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-24"
     >
-      <div className="relative mx-auto max-w-site overflow-hidden rounded-[24px] bg-[linear-gradient(120deg,#16B6F1_0%,#02A2DD_55%,#00749f_100%)] px-6 py-12 text-center sm:py-16 lg:py-[84px]">
+      <div className="relative mx-auto max-w-site overflow-hidden rounded-[24px] bg-[linear-gradient(120deg,#0087A5_0%,#006E8A_100%)] px-6 py-12 text-center sm:py-16 lg:py-[84px]">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.18),transparent_42%)]"
@@ -21,8 +21,8 @@ export function QuoteCTA() {
           We will give you an exact quote for your specific requirements within
           24 hours, and have your agent active within 72 hours of signing.
         </p>
-        <Button href="#contact" variant="white" className="relative px-11 py-4 text-[17px]">
-          Let&apos;s Talk
+        <Button href="/contact" variant="white" className="relative px-11 py-4 text-[17px]">
+          Book Meeting
         </Button>
       </div>
     </section>

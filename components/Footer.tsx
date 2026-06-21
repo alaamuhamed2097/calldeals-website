@@ -12,7 +12,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="scroll-mt-24 bg-[#0D7FA3] text-white">
+    <footer id="contact" className="scroll-mt-24 bg-[#0F2A4A] text-white">
       <Container className="pt-16 sm:pt-20 lg:pt-[66px]">
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
           {/* Brand + contact info */}
@@ -70,7 +70,7 @@ export function Footer() {
                 aria-label={social.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-[13px] font-bold text-white no-underline transition-all hover:bg-white hover:text-[#0D7FA3]"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-[13px] font-bold text-white no-underline transition-all hover:bg-white hover:text-[#0F2A4A]"
               >
                 {social.icon}
               </a>
