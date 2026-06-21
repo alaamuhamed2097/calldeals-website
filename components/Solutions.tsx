@@ -6,7 +6,7 @@ import { Reveal } from "./ui/Reveal";
 /** "Our Solutions" — photo cards matching the Figma home page. */
 export function Solutions() {
   return (
-    <section id="solutions" aria-label="Our solutions" className="scroll-mt-24">
+    <section id="solutions" aria-label="Our solutions" className="scroll-mt-24 bg-white">
       <Container className="pt-14 text-center sm:pt-20 lg:pt-[90px]">
         <Reveal variant="fade-up">
           <p className="text-[15px] font-medium tracking-[0.16em] text-slateblue">WHAT WE DO</p>

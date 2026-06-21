@@ -10,7 +10,7 @@ export function RevenueIntro({ industry }: { industry: IndustrySummary }) {
   const firstWord = industry.name.split(" ")[0];
 
   return (
-    <section aria-label="Overview" className="scroll-mt-24">
+    <section aria-label="Overview" className="scroll-mt-24 bg-white">
       <Container className="pt-12 sm:pt-16 lg:pt-20">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           {image && (

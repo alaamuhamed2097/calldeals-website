@@ -10,7 +10,7 @@ export function SecurityCompliance() {
   const items = [...securityLeft, ...securityRight];
 
   return (
-    <section aria-label="Security and compliance" className="scroll-mt-24">
+    <section aria-label="Security and compliance" className="scroll-mt-24 bg-white">
       <Container className="pt-12 sm:pt-16 lg:pt-20">
         <Reveal variant="fade-up">
           <h2 className="mb-2.5 text-[clamp(28px,4.4vw,56px)] font-semibold tracking-[-0.03em] text-navy">

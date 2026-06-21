@@ -26,7 +26,7 @@ export default function ContactPage() {
         subtitle="No pitch, no pressure. Tell us what you need and we'll map the roles, the scope, and the cost."
       />
 
-      <section aria-label="Contact">
+      <section aria-label="Contact" className="bg-white">
         <Container className="pt-14 sm:pt-20">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div className="flex flex-col gap-6">

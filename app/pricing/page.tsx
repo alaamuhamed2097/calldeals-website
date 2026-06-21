@@ -22,7 +22,7 @@ export default function PricingPage() {
         subtitle="We will give you an exact quote for your specific requirements within 24 hours, and have your agent active within 72 hours of signing."
       />
 
-      <section aria-label="Pricing plans">
+      <section aria-label="Pricing plans" className="bg-white">
         <Container className="pt-14 sm:pt-20">
           <div className="grid grid-cols-1 items-stretch gap-7 lg:grid-cols-3">
             {pricingTiers.map((tier) => (

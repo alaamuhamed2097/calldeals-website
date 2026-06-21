@@ -8,7 +8,7 @@ export function RelatedServices({ solutions }: { solutions: IndustrySolution[] }
   if (!solutions.length) return null;
 
   return (
-    <section aria-label="Related services" className="scroll-mt-24">
+    <section aria-label="Related services" className="scroll-mt-24 bg-white">
       <Container className="pt-12 sm:pt-16 lg:pt-20">
         <Reveal variant="fade-up">
           <h2 className="mb-10 text-[clamp(28px,4.4vw,56px)] font-semibold leading-[1.08] tracking-[-0.03em] text-navy">

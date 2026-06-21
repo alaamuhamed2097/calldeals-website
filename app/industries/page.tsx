@@ -31,7 +31,7 @@ export default async function IndustriesPage() {
       />
 
       {industries.length > 0 ? (
-        <section aria-label="Browse industries" className="scroll-mt-24">
+        <section aria-label="Browse industries" className="scroll-mt-24 bg-white">
           <Container className="pt-4 sm:pt-6">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {industries.map((industry, i) => {

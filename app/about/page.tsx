@@ -22,7 +22,7 @@ export default function AboutPage() {
         subtitle="We have run the campaigns, managed the pipelines, and felt the cost of the wrong team. CallDeals is the team we wished we had."
       />
 
-      <section aria-label="Our story">
+      <section aria-label="Our story" className="bg-white">
         <Container className="pt-14 sm:pt-20">
           <div className="mx-auto max-w-[760px] space-y-6">
             {aboutStory.map((paragraph) => (
