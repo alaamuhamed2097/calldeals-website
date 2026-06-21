@@ -11,12 +11,12 @@ export function SecurityCompliance() {
 
   return (
     <section aria-label="Security and compliance" className="scroll-mt-24">
-      <Container className="pt-14 sm:pt-20 lg:pt-24">
+      <Container className="pt-12 sm:pt-16 lg:pt-20">
         <Reveal variant="fade-up">
-          <h2 className="mb-2.5 text-[clamp(26px,3.2vw,40px)] font-bold tracking-[-0.02em] text-navy">
+          <h2 className="mb-2.5 text-[clamp(28px,4.4vw,56px)] font-semibold tracking-[-0.03em] text-navy">
             Security &amp; Compliance
           </h2>
-          <p className="mb-10 max-w-[560px] text-[16px] leading-relaxed text-slate">
+          <p className="mb-10 max-w-[560px] text-[clamp(16px,1.6vw,18px)] leading-relaxed text-slateblue">
             Enterprise-ready protocols to keep your data and vision secure.
           </p>
         </Reveal>

@@ -36,7 +36,9 @@ export function FAQ() {
               return (
                 <div
                   key={faq.question}
-                  className="overflow-hidden rounded-[14px] border border-[#dcf0fb] bg-mist"
+                  className={`overflow-hidden rounded-[14px] transition-colors ${
+                    isOpen ? "bg-[#e8f6fe]" : "bg-[#cdeafb]"
+                  }`}
                 >
                   <h3 className="m-0">
                     <button
@@ -52,9 +54,9 @@ export function FAQ() {
                       </span>
                       <span
                         aria-hidden="true"
-                        className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-cyan text-[20px] font-medium leading-none text-white"
+                        className="flex h-7 w-7 flex-none items-center justify-center text-[22px] font-medium leading-none text-navy"
                       >
-                        {isOpen ? "–" : "+"}
+                        {isOpen ? "×" : "+"}
                       </span>
                     </button>
                   </h3>

@@ -15,10 +15,10 @@ export function IndustryFAQ({ questions }: { questions: IndustryQuestion[] }) {
 
   return (
     <section id="faq" aria-label="Frequently asked questions" className="scroll-mt-24">
-      <Container className="pt-14 sm:pt-20 lg:pt-24">
+      <Container className="pt-12 sm:pt-16 lg:pt-20">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal variant="fade-up">
-            <h2 className="mb-4 text-[clamp(28px,3.4vw,40px)] font-bold leading-[1.12] tracking-[-0.02em] text-navy">
+            <h2 className="mb-4 text-[clamp(28px,4.4vw,56px)] font-semibold leading-[1.1] tracking-[-0.03em] text-navy">
               Frequently Asked Questions
             </h2>
             <p className="mb-7 max-w-[380px] text-base leading-relaxed text-slate">

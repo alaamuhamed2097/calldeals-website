@@ -73,6 +73,19 @@ body {
   color: #172f4f;
   line-height: 1.2;
 }
+/* On dark/gradient backgrounds, keep emphasis legible (inherit the light color). */
+.rich-text.text-mist strong,
+.rich-text.text-white strong,
+.rich-text.text-mist h1,
+.rich-text.text-mist h2,
+.rich-text.text-mist h3,
+.rich-text.text-mist h4 {
+  color: inherit;
+}
+.rich-text.text-mist a,
+.rich-text.text-white a {
+  color: #ffffff;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
