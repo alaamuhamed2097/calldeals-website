@@ -1,4 +1,9 @@
-import type { ApiEnvelope, IndustryDetail, IndustrySummary } from "@/types";
+import type {
+  ApiEnvelope,
+  IndustryDetail,
+  IndustrySummary,
+  SolutionSummary,
+} from "@/types";
 
 /**
  * Server-side CMS client for the Calldeals Dashboard (.NET) API.
@@ -96,4 +101,16 @@ export async function getIndustries(): Promise<IndustrySummary[]> {
  */
 export async function getIndustryBySlug(slug: string): Promise<IndustryDetail | null> {
   return apiGet<IndustryDetail>(`/api/Industry/by-slug/${encodeURIComponent(slug)}`);
+}
+
+/**
+ * All solutions (soft-fails to `[]`). The home "Our Solutions" section filters
+ * to `showInHomePage` and orders by `displayOrder`.
+ */
+export async function getSolutions(): Promise<SolutionSummary[]> {
+  try {
+    return (await apiGet<SolutionSummary[]>("/api/Solution")) ?? [];
+  } catch {
+    return [];
+  }
 }

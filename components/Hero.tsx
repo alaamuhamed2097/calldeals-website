@@ -1,66 +1,88 @@
 import { heroStats } from "@/lib/data";
-import { Button } from "./ui/Button";
 
 export function Hero() {
   return (
-    <section aria-label="Hero" className="px-4 pt-4 sm:px-6 sm:pt-6 lg:px-12 lg:pt-7">
-      <div className="relative mx-auto max-w-site overflow-hidden rounded-[26px] bg-[linear-gradient(118deg,#13B4F0_0%,#02A6E2_52%,#0098D2_100%)] shadow-[0_30px_70px_-38px_rgba(0,150,210,0.7)]">
+    <section aria-label="Hero">
+      {/* Full-width teal band */}
+      <div className="relative overflow-hidden bg-[#005677]">
+        {/* Faint concentric curved texture in the lower-left */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.13]"
+          preserveAspectRatio="xMidYMid slice"
+          viewBox="0 0 1440 600"
+          fill="none"
+        >
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <path
+              key={i}
+              d={`M -80 ${120 + i * 95} Q ${380 + i * 30} ${520 + i * 30}, ${
+                1080 + i * 40
+              } ${360 - i * 20}`}
+              stroke="white"
+              strokeWidth="1.4"
+            />
+          ))}
+        </svg>
+
+        {/* Light-blue triangle (apex at the top-right, widening to the base) */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(255,255,255,0.18),transparent_38%)]"
-        />
-        {/* Diagonal white wedge behind the agent photo (desktop only) */}
-        <div
-          aria-hidden="true"
-          className="absolute right-0 top-0 hidden h-full w-[44%] bg-white lg:block"
-          style={{ clipPath: "polygon(30% 0, 100% 0, 100% 100%, 8% 100%)" }}
+          className="absolute inset-0 hidden bg-[linear-gradient(135deg,#CCEFFC_0%,#eaf8ff_100%)] lg:block"
+          style={{ clipPath: "polygon(97% 0, 100% 0, 100% 100%, 48% 100%)" }}
         />
 
-        <div className="relative grid grid-cols-1 items-stretch gap-5 px-6 pt-8 sm:px-10 sm:pt-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-[60px] lg:pt-[60px]">
-          <div className="max-w-[560px] pb-10 lg:pb-12">
-            <h1 className="mb-[18px] text-[clamp(36px,4.6vw,62px)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
+        {/* Agent photo inside the triangle (desktop) */}
+        <div className="absolute bottom-0 right-[3%] hidden h-full w-[38%] items-end justify-center lg:flex">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/hero-agent.png"
+            alt="CallDeals support agent wearing headphones"
+            className="h-[108%] w-auto max-w-none object-contain object-bottom"
+          />
+        </div>
+
+        <div className="relative mx-auto grid max-w-site grid-cols-1 gap-6 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-12 lg:py-[120px]">
+          <div className="max-w-[600px]">
+            <h1 className="mb-5 text-[clamp(34px,5vw,58px)] font-bold leading-[1.06] tracking-[-0.02em] text-white">
               More Than Calls,
               <br />
               Power Business Growth
             </h1>
-            <p className="mb-4 text-[clamp(18px,2vw,24px)] font-semibold text-[#06354F]">
+            <p className="mb-4 text-[clamp(18px,2.2vw,24px)] font-semibold text-white">
               Smart Agents. Seamless Support. For Every Industry.
             </p>
-            <p className="mb-[30px] max-w-[480px] text-[17px] leading-[1.55] text-[#0a3b56]">
+            <p className="mb-8 max-w-[500px] text-[16px] leading-[1.6] text-white/80">
               CallDeals deploys elite, college-educated professionals into your
               business in 72 hours. We combine high-caliber talent with smart
               processes to drive revenue and cut costs by 70%.
             </p>
-            <Button href="#contact" variant="white" className="px-[42px] py-4 text-[17px]">
+            <a
+              href="#contact"
+              className="inline-flex h-[54px] items-center justify-center rounded-full bg-white px-11 text-[17px] font-semibold text-deep no-underline shadow-[0_14px_30px_-14px_rgba(0,40,70,0.45)] transition-all hover:-translate-y-0.5"
+            >
               Let&apos;s Talk
-            </Button>
-          </div>
-
-          <div className="relative hidden items-end justify-center lg:flex">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/hero-person.png"
-              alt="Smiling CallDeals support agent wearing a headset and holding a mug"
-              className="block h-auto w-[118%] max-w-none self-end drop-shadow-[0_24px_40px_rgba(0,60,90,0.25)]"
-            />
+            </a>
           </div>
         </div>
+      </div>
 
-        {/* Stats bar */}
-        <dl className="relative grid grid-cols-2 border-t border-[#eef3f6] bg-white sm:grid-cols-4">
+      {/* Light-blue stats bar */}
+      <div className="px-4 sm:px-6 lg:px-12">
+        <dl className="mx-auto -mt-px grid max-w-site grid-cols-2 gap-y-6 rounded-b-[18px] bg-[#CCEFFC] py-7 sm:grid-cols-4">
           {heroStats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`px-5 py-6 text-center ${
-                i < heroStats.length - 1 ? "sm:border-r sm:border-[#eef3f6]" : ""
-              } ${i % 2 === 0 ? "border-r border-[#eef3f6] sm:border-r" : ""}`}
+              className={`px-5 text-center ${
+                i < heroStats.length - 1 ? "sm:border-r sm:border-white/60" : ""
+              }`}
             >
-              <dd className="text-[clamp(26px,3vw,40px)] font-bold tracking-[-0.02em] text-navy">
-                {stat.prefix && <span className="text-cyan">{stat.prefix}</span>}
+              <dd className="text-[clamp(26px,3vw,38px)] font-bold tracking-[-0.02em] text-[#005677]">
+                {stat.prefix && <span>{stat.prefix}</span>}
                 {stat.value}
-                {stat.suffix && <span className="text-cyan">{stat.suffix}</span>}
+                {stat.suffix && <span>{stat.suffix}</span>}
               </dd>
-              <dt className="mt-1 text-[14px] text-slate">{stat.label}</dt>
+              <dt className="mt-1 text-[14px] text-[#2d6a85]">{stat.label}</dt>
             </div>
           ))}
         </dl>

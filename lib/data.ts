@@ -17,10 +17,10 @@ export const navLinks: NavLink[] = [
 ];
 
 export const heroStats: HeroStat[] = [
-  { value: "12", suffix: "+", label: "Languages Supported" },
+  { value: "9", suffix: "+", label: "Language Supported" },
   { value: "950", suffix: "+", label: "Clients Served" },
-  { prefix: "$", value: "2M", suffix: "+", label: "Saved by our clients" },
-  { value: "11", suffix: "+", label: "Industries Served" },
+  { prefix: "$", value: "80", suffix: "M", label: "Saved by our clients" },
+  { value: "11", suffix: "+", label: "industries served" },
 ];
 
 export const solutions: Solution[] = [
@@ -29,28 +29,32 @@ export const solutions: Solution[] = [
     title: "General Virtual Assistant",
     description:
       "Your all-in-one operational support. Handles admin, communication, scheduling, and day-to-day coordination, adapting to what your business needs each day.",
-    href: "#contact",
+    href: "/solutions",
+    image: "/assets/solutions/general.jpg",
   },
   {
     icon: "◆",
     title: "Tailored Virtual Assistant",
     description:
       "A multi-role professional built around your specific workflow. One agent crossing departments, filling your exact gaps, and evolving with your business as your needs change.",
-    href: "#contact",
+    href: "/solutions",
+    image: "/assets/solutions/tailored.jpg",
   },
   {
     icon: "✦",
     title: "Customer Services",
     description:
       "Every customer interaction handled with professionalism across phone, email, and live chat. Zero missed contacts. Consistent brand voice. Every channel covered.",
-    href: "#contact",
+    href: "/solutions",
+    image: "/assets/solutions/customer.jpg",
   },
   {
     icon: "▦",
     title: "Administrative",
     description:
       "CRM management, inbox triage, calendar coordination, data entry, and back-office operation handled without your involvement — so your high-value hours go toward high-value work.",
-    href: "#contact",
+    href: "/solutions",
+    image: "/assets/solutions/admin.jpg",
   },
 ];
 
@@ -333,37 +337,52 @@ export const faqs: Faq[] = [
 
 export const footerColumns: FooterColumn[] = [
   {
+    title: "Important Links",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Explore Solutions", href: "/solutions" },
+      { label: "Explore Industries", href: "/industries" },
+    ],
+  },
+  {
     title: "Solutions",
     links: [
-      { label: "General Assistant", href: "#solutions" },
-      { label: "Tailored", href: "#solutions" },
-      { label: "Customer Service", href: "#solutions" },
-      { label: "Bookkeeping", href: "#solutions" },
-      { label: "Sales Development", href: "#solutions" },
-      { label: "Inside Sales", href: "#solutions" },
-      { label: "Administrative", href: "#solutions" },
+      { label: "Customer Services", href: "/solutions" },
+      { label: "General Assistant", href: "/solutions" },
+      { label: "Tailored", href: "/solutions" },
+      { label: "Transaction", href: "/solutions" },
+      { label: "Bookkeeping", href: "/solutions" },
+      { label: "Sales", href: "/solutions" },
+      { label: "Marketing", href: "/solutions" },
+      { label: "HR & PEO", href: "/solutions" },
+      { label: "Inside Sales", href: "/solutions" },
+      { label: "Administrative", href: "/solutions" },
+      { label: "Virtual Receptionist", href: "/solutions" },
     ],
   },
   {
     title: "Industries",
     links: [
-      { label: "Real Estate", href: "#industries" },
-      { label: "Healthcare", href: "#industries" },
-      { label: "E-commerce", href: "#industries" },
-      { label: "Technology", href: "#industries" },
-      { label: "Finance", href: "#industries" },
-      { label: "Insurance", href: "#industries" },
-      { label: "Mortgage & Lending", href: "#industries" },
+      { label: "Healthcare", href: "/industries" },
+      { label: "E-commerce", href: "/industries" },
+      { label: "Insurance", href: "/industries" },
+      { label: "Technology", href: "/industries" },
+      { label: "Real Estate", href: "/industries" },
+      { label: "Marketing Agencies", href: "/industries" },
+      { label: "Property", href: "/industries" },
+      { label: "Mortgage & Lending", href: "/industries" },
+      { label: "Law Firms", href: "/industries" },
+      { label: "Finance", href: "/industries" },
     ],
   },
   {
     title: "Get In Touch",
     links: [
-      { label: "Contact us", href: "#contact" },
-      { label: "About us", href: "#talent" },
-      { label: "Get Started", href: "#contact" },
-      { label: "Book A Demo", href: "#contact" },
-      { label: "How It Works", href: "#talent" },
+      { label: "Contact us", href: "/contact" },
+      { label: "About us", href: "/about" },
+      { label: "Book A Demo", href: "/contact" },
+      { label: "How It Works", href: "/about" },
+      { label: "Pricing plans", href: "/pricing" },
       { label: "Privacy Policy", href: "#" },
       { label: "Terms & Conditions", href: "#" },
     ],

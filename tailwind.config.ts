@@ -27,6 +27,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
       },
       maxWidth: {
         site: "1240px",
@@ -48,12 +49,17 @@ const config: Config = {
           "0%": { opacity: "0", transform: "scale(0.96)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         float: "float 6s ease-in-out infinite",
         "fade-up": "fade-up 0.6s ease both",
         "fade-in": "fade-in 0.6s ease both",
         "scale-in": "scale-in 0.5s ease both",
+        marquee: "marquee 28s linear infinite",
       },
     },
   },

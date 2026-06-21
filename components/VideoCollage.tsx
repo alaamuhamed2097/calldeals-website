@@ -1,51 +1,62 @@
+import { Container } from "./ui/Container";
+
+/** Decorative "live collaboration" collage matching the Figma home section. */
 export function VideoCollage() {
   return (
-    <section
-      aria-hidden="true"
-      className="mx-auto hidden max-w-site px-4 pt-10 sm:px-6 lg:block lg:px-12 lg:pt-16"
-    >
-      <div className="relative h-[340px] overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#F4FBFE,#ffffff)]">
-        <div className="absolute bottom-[-30px] left-[8%] h-0 w-0 border-l-[120px] border-r-[120px] border-b-[200px] border-l-transparent border-r-transparent border-b-ice opacity-70" />
-        <div className="absolute bottom-[-50px] left-[34%] h-0 w-0 border-l-[150px] border-r-[150px] border-b-[240px] border-l-transparent border-r-transparent border-b-cyan opacity-[0.18]" />
+    <section aria-hidden="true" className="pt-10 sm:pt-16 lg:pt-20">
+      <Container>
+        <div className="relative mx-auto hidden h-[420px] max-w-[1120px] lg:block">
+          {/* Light-blue background triangle behind the circles */}
+          <div
+            className="absolute bottom-0 left-[40%] h-[300px] w-[360px] bg-[#d4eefb]"
+            style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)" }}
+          />
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/assets/video-phone.png"
-          alt=""
-          className="absolute bottom-0 left-[6%] h-[330px] w-auto animate-float"
-        />
-
-        <div className="absolute left-[30%] top-[42px] rounded-[14px_14px_14px_2px] bg-white px-[15px] py-[9px] text-sm font-medium text-navy shadow-[0_8px_20px_-10px_rgba(0,60,90,0.3)]">
-          Hey Ahmed! 👋
-        </div>
-        <div className="absolute left-[33%] top-[92px] rounded-[14px_14px_2px_14px] bg-cyan px-[15px] py-[9px] text-sm font-medium text-white shadow-[0_8px_20px_-10px_rgba(0,120,160,0.4)]">
-          Just send the Draft
-        </div>
-
-        <div className="absolute bottom-[18px] left-[48%] h-[230px] w-[230px] overflow-hidden rounded-full bg-ice shadow-[0_18px_40px_-18px_rgba(0,90,130,0.45)]">
+          {/* Hand holding phone (call screen) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/video-man.png"
+            src="/assets/video/phone.png"
             alt=""
-            className="h-full w-full object-cover object-top"
+            className="absolute bottom-0 left-0 h-[400px] w-auto animate-float drop-shadow-[0_24px_40px_rgba(0,60,90,0.18)]"
           />
-        </div>
-        <div className="absolute left-[46%] top-[60px] rounded-[14px_14px_2px_14px] bg-white px-[15px] py-[9px] text-sm font-medium text-navy shadow-[0_8px_20px_-10px_rgba(0,60,90,0.3)]">
-          Thanks! 🙌
-        </div>
 
-        <div className="absolute bottom-[16px] right-[8%] h-[240px] w-[240px] overflow-hidden rounded-full bg-[#E6F8FE] shadow-[0_18px_40px_-18px_rgba(0,90,130,0.45)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/video-woman.png"
-            alt=""
-            className="h-full w-full object-cover object-top"
-          />
+          {/* Chat bubbles */}
+          <div className="absolute left-[31%] top-[44px] rounded-[16px_16px_16px_3px] bg-white px-4 py-2.5 text-[15px] font-medium text-navy shadow-[0_10px_24px_-12px_rgba(0,60,90,0.3)]">
+            Hey Ahmed! 👍
+          </div>
+          <div className="absolute left-[34%] top-[104px] rounded-[16px_16px_3px_16px] bg-cyan px-4 py-2.5 text-[15px] font-semibold text-white shadow-[0_10px_24px_-12px_rgba(0,120,160,0.45)]">
+            Just send the Draft
+          </div>
+          <div className="absolute left-[48%] top-[74px] rounded-[16px_16px_16px_3px] bg-white px-4 py-2.5 text-[15px] font-medium text-navy shadow-[0_10px_24px_-12px_rgba(0,60,90,0.3)]">
+            Thanks! 🙌
+          </div>
+          <div className="absolute left-[64%] top-[60px] flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[14px] font-semibold text-[#2D8CFF] shadow-[0_10px_24px_-12px_rgba(0,60,90,0.3)]">
+            <span className="h-[9px] w-[9px] rounded-full bg-[#2D8CFF]" /> Live call
+          </div>
+
+          {/* Man waving */}
+          <div className="absolute bottom-0 left-[49%] h-[210px] w-[210px]">
+            <div className="absolute bottom-0 h-[200px] w-[210px] rounded-full bg-[#cfeefc]" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/video/man-waving.png"
+              alt=""
+              className="absolute bottom-0 left-1/2 h-[250px] w-auto -translate-x-1/2"
+            />
+          </div>
+
+          {/* Woman */}
+          <div className="absolute bottom-0 right-[2%] h-[210px] w-[210px]">
+            <div className="absolute bottom-0 h-[200px] w-[210px] rounded-full bg-[#e6f6fd]" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/video/woman.png"
+              alt=""
+              className="absolute bottom-0 left-1/2 h-[240px] w-auto -translate-x-1/2"
+            />
+          </div>
         </div>
-        <div className="absolute right-[30%] top-[54px] flex items-center gap-[7px] rounded-[20px] bg-white px-3.5 py-[7px] text-[13px] font-semibold text-[#2D8CFF] shadow-[0_8px_20px_-10px_rgba(0,60,90,0.3)]">
-          <span className="h-[9px] w-[9px] rounded-full bg-[#2D8CFF]" /> Live call
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }

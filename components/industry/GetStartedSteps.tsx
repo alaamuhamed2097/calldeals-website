@@ -2,30 +2,35 @@ import { Container } from "../ui/Container";
 import { Reveal } from "../ui/Reveal";
 
 const STEPS = [
-  "Book a personalized strategy session",
-  "Co-create your success plan",
-  "Get indispensable talent & resources",
+  { bg: "#00efe3", label: "Book a personalized strategy session" },
+  { bg: "#55d4f4", label: "Co-create your success plan" },
+  { bg: "#00aeef", label: "Get indispensable talent & resources" },
 ];
 
-/** Static "Get Started" 3-step band (identical across industries in Figma). */
+/** Static "Get Started" — 3 large colored step cards (Figma layout). */
 export function GetStartedSteps({ industryName }: { industryName: string }) {
   return (
     <section aria-label="Get started" className="scroll-mt-24">
-      <Container className="pt-14 sm:pt-20 lg:pt-24">
+      <Container className="pt-12 sm:pt-16 lg:pt-20">
         <Reveal variant="fade-up">
-          <h2 className="mb-10 max-w-[640px] text-[clamp(26px,3.2vw,40px)] font-bold leading-[1.12] tracking-[-0.02em] text-navy">
-            Get Started — hire a {industryName} virtual assistant with CallDeals today.
+          <h2 className="mb-10 max-w-[680px] text-[clamp(28px,4.4vw,56px)] font-semibold leading-[1.1] tracking-[-0.03em] text-navy">
+            Hire a dedicated {industryName} virtual assistant with CallDeals today.
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {STEPS.map((step, i) => (
-            <Reveal key={step} variant="scale-in" delay={i * 110}>
-              <div className="flex h-full flex-col gap-5 rounded-[18px] bg-[linear-gradient(160deg,#16B6F1_0%,#0098D2_100%)] p-7 text-white shadow-[0_24px_50px_-32px_rgba(0,150,210,0.7)]">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-[22px] font-bold">
+            <Reveal key={step.label} variant="scale-in" delay={i * 110}>
+              <div
+                className="flex aspect-square flex-col justify-between rounded-[25px] p-8"
+                style={{ backgroundColor: step.bg }}
+              >
+                <span className="text-[clamp(56px,7vw,76px)] font-black leading-none text-white">
                   {i + 1}
                 </span>
-                <p className="text-[18px] font-semibold leading-[1.35]">{step}</p>
+                <p className="text-[clamp(18px,2vw,24px)] font-normal leading-[1.25] text-navy">
+                  {step.label}
+                </p>
               </div>
             </Reveal>
           ))}

@@ -16,6 +16,7 @@ export interface Solution {
   title: string;
   description: string;
   href: string;
+  image?: string;
 }
 
 export interface IndustryStat {
@@ -120,6 +121,17 @@ export interface IndustrySolution {
   shortDescription: string;
   description: string;
   mainImage: string | null;
+}
+
+export interface SolutionSummary {
+  id: string;
+  name: string;
+  shortDescription: string;
+  description: string;
+  mainImage: string | null;
+  subImage: string | null;
+  displayOrder: number;
+  showInHomePage: boolean;
 }
 
 export interface IndustryDetail {
