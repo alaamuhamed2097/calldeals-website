@@ -1,41 +1,48 @@
 import Link from "next/link";
 import { footerColumns } from "@/lib/data";
 import { Logo } from "./ui/Logo";
+import { Container } from "./ui/Container";
 
 const socials = [
-  { label: "Facebook", glyph: "f" },
-  { label: "LinkedIn", glyph: "in" },
-  { label: "Instagram", glyph: "◎" },
-  { label: "X", glyph: "𝕏" },
+  { label: "Facebook", icon: "f" },
+  { label: "LinkedIn", icon: "in" },
+  { label: "Instagram", icon: "◎" },
+  { label: "X", icon: "𝕏" },
 ];
 
 export function Footer() {
   return (
-    <footer id="contact" className="mt-14 scroll-mt-24 bg-[#00749f] text-white sm:mt-20 lg:mt-24">
-      <div className="mx-auto max-w-site px-4 pt-12 sm:px-6 sm:pt-16 lg:px-12 lg:pt-[66px]">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-[1.5fr_1fr_1fr_1.1fr]">
-          {/* Brand + contact */}
-          <div className="col-span-2 lg:col-span-1">
-            <Logo variant="mono" className="mb-8" />
-            <div className="mb-3.5 flex items-center gap-4 text-[16px] text-white/90">
-              <span aria-hidden="true" className="text-[18px]">✆</span>
-              <a href="tel:+200123456789" className="no-underline hover:text-white">
+    <footer id="contact" className="scroll-mt-24 bg-[#0D7FA3] text-white">
+      <Container className="pt-16 sm:pt-20 lg:pt-[66px]">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
+          {/* Brand + contact info */}
+          <div>
+            <Logo variant="mono" className="mb-8 h-12" />
+            <div className="mb-4 flex items-start gap-3">
+              <span aria-hidden="true" className="flex-none text-lg">☎</span>
+              <a href="tel:+200123456789" className="text-[15px] text-white/90 no-underline hover:text-white transition-colors">
                 +20 0123456789
               </a>
             </div>
-            <div className="flex items-center gap-4 text-[16px] text-white/90">
-              <span aria-hidden="true" className="text-[18px]">⌖</span>
-              Apt, City, Street, Country
+            <div className="flex items-start gap-3">
+              <span aria-hidden="true" className="flex-none text-lg">⊕</span>
+              <div className="text-[15px] text-white/90">Apt, City, Street, Country</div>
             </div>
           </div>
 
+          {/* Footer columns */}
           {footerColumns.map((column) => (
             <nav key={column.title} aria-label={column.title}>
-              <h3 className="mb-7 text-[18px] font-semibold text-white">{column.title}</h3>
-              <ul className="m-0 flex list-none flex-col gap-4 p-0 text-[16px] text-white/85">
+              <h3 className="mb-5 text-[15px] font-semibold text-white uppercase tracking-wide">
+                {column.title}
+              </h3>
+              <ul className="m-0 flex list-none flex-col gap-3 p-0">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="no-underline transition-colors hover:text-white">
+                    <Link 
+                      href={link.href} 
+                      className="text-[14px] text-white/80 no-underline transition-colors hover:text-white"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -45,24 +52,32 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/15 py-6 text-[15px] text-white/85 sm:flex-row">
-          <span className="flex items-center gap-2">
-            <span aria-hidden="true">©</span> 2026 Call Deals
+        {/* Divider */}
+        <div className="my-8 border-t border-white/20" />
+
+        {/* Bottom section with copyright and socials */}
+        <div className="flex flex-col items-center justify-between gap-6 pb-8 sm:flex-row">
+          <span className="flex items-center gap-2 text-[14px] text-white/80">
+            <span aria-hidden="true">©</span>
+            <span>2026 Call Deals</span>
           </span>
-          <div className="flex gap-3">
+          
+          <div className="flex gap-2">
             {socials.map((social) => (
               <a
                 key={social.label}
                 href="#"
                 aria-label={social.label}
-                className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-white/15 text-[13px] font-bold text-white no-underline transition-colors hover:bg-white hover:text-[#00749f]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-[13px] font-bold text-white no-underline transition-all hover:bg-white hover:text-[#0D7FA3]"
               >
-                {social.glyph}
+                {social.icon}
               </a>
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

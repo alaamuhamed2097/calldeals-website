@@ -3,12 +3,12 @@ import { heroStats } from "@/lib/data";
 export function Hero() {
   return (
     <section aria-label="Hero">
-      {/* Full-width teal band */}
-      <div className="relative overflow-hidden bg-[#005677]">
-        {/* Faint concentric curved texture in the lower-left */}
+      {/* Full-width hero with dark teal background */}
+      <div className="relative overflow-hidden bg-[#0D5F7A]">
+        {/* Decorative wave lines */}
         <svg
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.13]"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08]"
           preserveAspectRatio="xMidYMid slice"
           viewBox="0 0 1440 600"
           fill="none"
@@ -25,44 +25,48 @@ export function Hero() {
           ))}
         </svg>
 
-        {/* Light-blue triangle (apex at the top-right, widening to the base) */}
+        {/* Light-blue diagonal background section (only shows on lg+) */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 hidden bg-[linear-gradient(135deg,#CCEFFC_0%,#eaf8ff_100%)] lg:block"
-          style={{ clipPath: "polygon(97% 0, 100% 0, 100% 100%, 48% 100%)" }}
+          className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(135deg,#CCEFFC_0%,#E8F9FE_100%)] lg:block"
+          style={{ clipPath: "polygon(100% 0%, 100% 100%, 40% 100%)" }}
         />
 
-        {/* Agent photo inside the triangle (desktop) */}
-        <div className="absolute bottom-0 right-[3%] hidden h-full w-[38%] items-end justify-center lg:flex">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/hero-agent.png"
-            alt="CallDeals support agent wearing headphones"
-            className="h-[108%] w-auto max-w-none object-contain object-bottom"
-          />
-        </div>
+        {/* Grid layout for content and image */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0">
+          {/* Left column: Text content */}
+          <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-20 lg:px-12 lg:py-[100px]">
+            <div className="max-w-[420px]">
+              <h1 className="mb-6 text-[clamp(36px,5.5vw,62px)] font-bold leading-[1.08] tracking-[-0.02em] text-white">
+                More Than Calls,
+                <br />
+                Power Business Growth
+              </h1>
+              <p className="mb-4 text-[clamp(18px,2.2vw,24px)] font-semibold text-white">
+                Smart Agents. Seamless Support. For Every Industry.
+              </p>
+              <p className="mb-10 max-w-[420px] text-[16px] leading-[1.6] text-white/85">
+                CallDeals deploys elite, college-educated professionals into your
+                business in 72 hours. We combine high-caliber talent with smart
+                processes to drive revenue and cut costs by 70%.
+              </p>
+              <a
+                href="#contact"
+                className="inline-flex h-[56px] items-center justify-center rounded-full bg-white px-12 text-[17px] font-semibold text-[#0D5F7A] no-underline shadow-[0_14px_30px_-14px_rgba(0,40,70,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-14px_rgba(0,40,70,0.55)]"
+              >
+                Let&apos;s Talk
+              </a>
+            </div>
+          </div>
 
-        <div className="relative mx-auto grid max-w-site grid-cols-1 gap-6 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-12 lg:py-[120px]">
-          <div className="max-w-[600px]">
-            <h1 className="mb-5 text-[clamp(34px,5vw,58px)] font-bold leading-[1.06] tracking-[-0.02em] text-white">
-              More Than Calls,
-              <br />
-              Power Business Growth
-            </h1>
-            <p className="mb-4 text-[clamp(18px,2.2vw,24px)] font-semibold text-white">
-              Smart Agents. Seamless Support. For Every Industry.
-            </p>
-            <p className="mb-8 max-w-[500px] text-[16px] leading-[1.6] text-white/80">
-              CallDeals deploys elite, college-educated professionals into your
-              business in 72 hours. We combine high-caliber talent with smart
-              processes to drive revenue and cut costs by 70%.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex h-[54px] items-center justify-center rounded-full bg-white px-11 text-[17px] font-semibold text-deep no-underline shadow-[0_14px_30px_-14px_rgba(0,40,70,0.45)] transition-all hover:-translate-y-0.5"
-            >
-              Let&apos;s Talk
-            </a>
+          {/* Right column: Agent image (hidden on mobile, visible on lg+) */}
+          <div className="hidden lg:flex items-end justify-center py-[100px] pr-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-s4ZM7uH36Z0A72As84C2Ngb1INHFIE.png"
+              alt="CallDeals support agent wearing headphones"
+              className="h-[400px] w-auto object-contain object-bottom"
+            />
           </div>
         </div>
       </div>
@@ -77,7 +81,7 @@ export function Hero() {
                 i < heroStats.length - 1 ? "sm:border-r sm:border-white/60" : ""
               }`}
             >
-              <dd className="text-[clamp(26px,3vw,38px)] font-bold tracking-[-0.02em] text-[#005677]">
+              <dd className="text-[clamp(26px,3vw,38px)] font-bold tracking-[-0.02em] text-[#0D5F7A]">
                 {stat.prefix && <span>{stat.prefix}</span>}
                 {stat.value}
                 {stat.suffix && <span>{stat.suffix}</span>}

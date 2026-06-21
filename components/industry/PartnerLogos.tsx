@@ -8,7 +8,7 @@ export function PartnerLogos({ partners }: { partners: IndustryPartner[] }) {
   if (!partners.length) return null;
 
   return (
-    <section aria-label="Trusted by" className="scroll-mt-24">
+    <section aria-label="Trusted by" className="scroll-mt-24 bg-white">
       <Container className="pt-14 sm:pt-20 lg:pt-24">
         <Reveal variant="fade-in">
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 opacity-80">

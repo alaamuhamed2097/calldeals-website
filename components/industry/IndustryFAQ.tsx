@@ -14,7 +14,7 @@ export function IndustryFAQ({ questions }: { questions: IndustryQuestion[] }) {
   if (!questions.length) return null;
 
   return (
-    <section id="faq" aria-label="Frequently asked questions" className="scroll-mt-24">
+    <section id="faq" aria-label="Frequently asked questions" className="scroll-mt-24 bg-white">
       <Container className="pt-12 sm:pt-16 lg:pt-20">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal variant="fade-up">

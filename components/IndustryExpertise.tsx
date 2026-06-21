@@ -13,7 +13,7 @@ export function IndustryExpertise() {
     industries.find((industry) => industry.key === activeKey) ?? industries[0];
 
   return (
-    <section id="industries" aria-label="Industry expertise" className="scroll-mt-24">
+    <section id="industries" aria-label="Industry expertise" className="scroll-mt-24 bg-white">
       <Container className="pt-14 sm:pt-20 lg:pt-24">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           {/* Left: heading + tabs */}

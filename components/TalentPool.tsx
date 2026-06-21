@@ -6,7 +6,7 @@ export function TalentPool() {
     <section
       id="talent"
       aria-label="Talent pool"
-      className="scroll-mt-24 px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-24"
+      className="scroll-mt-24 bg-white px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-24"
     >
       <div className="relative mx-auto max-w-site overflow-hidden rounded-[26px] bg-[linear-gradient(150deg,#0F2A4A_0%,#0B1F3C_100%)] p-9 text-white sm:p-12 lg:p-[68px]">
         <div

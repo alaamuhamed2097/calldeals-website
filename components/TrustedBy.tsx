@@ -10,7 +10,7 @@ const logos = [
 
 export function TrustedBy() {
   return (
-    <section aria-label="Trusted by" className="pt-14 text-center sm:pt-20 lg:pt-[84px]">
+    <section aria-label="Trusted by" className="bg-white pt-14 text-center sm:pt-20 lg:pt-[84px]">
       <div className="mx-auto max-w-[980px] px-6">
         <h2 className="mb-3.5 text-[clamp(22px,2.4vw,28px)] font-semibold text-navy">
           Trusted by Operators Who Demand Results

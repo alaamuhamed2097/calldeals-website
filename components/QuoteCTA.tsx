@@ -4,7 +4,7 @@ export function QuoteCTA() {
   return (
     <section
       aria-label="Get a quote"
-      className="px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-24"
+      className="bg-white px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-24"
     >
       <div className="relative mx-auto max-w-site overflow-hidden rounded-[24px] bg-[linear-gradient(120deg,#16B6F1_0%,#02A2DD_55%,#00749f_100%)] px-6 py-12 text-center sm:py-16 lg:py-[84px]">
         <div

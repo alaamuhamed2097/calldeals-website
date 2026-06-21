@@ -3,7 +3,7 @@ import { Button } from "./ui/Button";
 
 export function ClientResults() {
   return (
-    <section aria-label="Client results">
+    <section aria-label="Client results" className="bg-white">
       <Container className="pt-14 sm:pt-20 lg:pt-24">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>

@@ -11,7 +11,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number>(DEFAULT_OPEN);
 
   return (
-    <section id="faq" aria-label="Frequently asked questions" className="scroll-mt-24">
+    <section id="faq" aria-label="Frequently asked questions" className="scroll-mt-24 bg-white">
       <Container className="pt-14 sm:pt-20 lg:pt-24">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>

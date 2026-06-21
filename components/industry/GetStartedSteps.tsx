@@ -10,7 +10,7 @@ const STEPS = [
 /** Static "Get Started" — 3 large colored step cards (Figma layout). */
 export function GetStartedSteps({ industryName }: { industryName: string }) {
   return (
-    <section aria-label="Get started" className="scroll-mt-24">
+    <section aria-label="Get started" className="scroll-mt-24 bg-white">
       <Container className="pt-12 sm:pt-16 lg:pt-20">
         <Reveal variant="fade-up">
           <h2 className="mb-10 max-w-[680px] text-[clamp(28px,4.4vw,56px)] font-semibold leading-[1.1] tracking-[-0.03em] text-navy">

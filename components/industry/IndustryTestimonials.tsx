@@ -12,7 +12,7 @@ export function IndustryTestimonials({
   if (!testimonials.length) return null;
 
   return (
-    <section aria-label="Client testimonials" className="scroll-mt-24">
+    <section aria-label="Client testimonials" className="scroll-mt-24 bg-white">
       <Container className="pt-12 sm:pt-16 lg:pt-20">
         <Reveal variant="fade-up">
           <h2 className="mb-12 text-center text-[clamp(28px,4.4vw,56px)] font-semibold tracking-[-0.03em] text-navy">
