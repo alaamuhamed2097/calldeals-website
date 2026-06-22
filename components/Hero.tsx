@@ -3,22 +3,27 @@ import { heroStats } from "@/lib/data";
 export function Hero() {
   return (
     <section aria-label="Hero">
-      {/* Hero wrapper with two-tone background */}
-      <div className="relative overflow-hidden bg-[#C5E9F7]" style={{ minHeight: "600px" }}>
-        {/* Left side: Dark teal background with triangular separator */}
-        <div 
-          className="absolute inset-0 bg-[#0D5F7A]"
-          style={{
-            clipPath: "polygon(0 0, 0 100%, 45% 100%, 0 0)",
-            width: "55%"
-          }}
-        />
+      {/* Hero wrapper */}
+      <div className="relative overflow-hidden bg-[#C5E9F7]" style={{ minHeight: "620px" }}>
+        {/* Left section: Dark teal background */}
+        <div className="absolute left-0 top-0 bottom-0 bg-[#0D5F7A] lg:w-[55%]" />
         
-        {/* Decorative wave lines on dark teal side */}
+        {/* Diagonal separator SVG overlay */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 620"
+          fill="#0D5F7A"
+        >
+          <polygon points="0,0 0,620 660,620 0,0" />
+        </svg>
+
+        {/* Decorative wave lines - positioned only on left */}
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 h-full opacity-[0.08]"
-          style={{ width: "55%", clipPath: "polygon(0 0, 0 100%, 45% 100%, 0 0)" }}
+          style={{ width: "55%", mixBlendMode: "multiply" }}
           preserveAspectRatio="xMidYMid slice"
           viewBox="0 0 1440 600"
           fill="none"
@@ -35,10 +40,10 @@ export function Hero() {
           ))}
         </svg>
 
-        {/* Hero content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-stretch gap-0 h-full">
-          {/* Left column: Text content on dark teal */}
-          <div className="w-full lg:w-1/2 flex items-center px-4 py-14 sm:px-6 sm:py-20 lg:px-12 lg:py-16">
+        {/* Hero content - positioned above backgrounds */}
+        <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-0 h-full">
+          {/* Left column: Text content */}
+          <div className="w-full lg:w-[55%] flex items-center px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-20">
             <div className="max-w-[450px]">
               <h1 className="mb-6 text-[clamp(32px,5vw,56px)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
                 More Than Calls,
@@ -62,13 +67,13 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right column: Large agent image on light blue background */}
-          <div className="w-full lg:w-1/2 flex items-end justify-end">
+          {/* Right column: Large agent image */}
+          <div className="w-full lg:w-[45%] flex items-end justify-end overflow-hidden lg:pr-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%2027-kBY0YnTOlVUxrk2oS7nqAbmnScuYAZ.png"
               alt="CallDeals support agent wearing headphones and holding cup"
-              className="h-[550px] w-auto object-contain object-bottom"
+              className="h-[600px] w-auto object-contain object-bottom max-w-full"
             />
           </div>
         </div>
