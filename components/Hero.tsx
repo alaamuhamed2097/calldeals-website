@@ -66,8 +66,8 @@ export function Hero() {
           <div className="hidden lg:flex lg:flex-shrink-0 items-center justify-center py-[100px] px-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-s4ZM7uH36Z0A72As84C2Ngb1INHFIE.png"
-              alt="CallDeals support agent wearing headphones"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%2027-kBY0YnTOlVUxrk2oS7nqAbmnScuYAZ.png"
+              alt="CallDeals support agent wearing headphones and holding cup"
               className="h-[450px] w-auto object-contain"
             />
           </div>
