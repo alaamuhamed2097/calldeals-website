@@ -28,15 +28,18 @@ export function Hero() {
         {/* Light-blue diagonal background section (only shows on lg+) */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(135deg,#CCEFFC_0%,#E8F9FE_100%)] lg:block"
-          style={{ clipPath: "polygon(100% 0%, 100% 100%, 40% 100%)" }}
+          className="pointer-events-none absolute top-0 right-0 hidden h-full w-1/2 lg:block"
+          style={{
+            background: "linear-gradient(135deg, #CCEFFC 0%, #E8F9FE 100%)",
+            clipPath: "polygon(100% 0%, 100% 100%, 30% 100%)"
+          }}
         />
 
-        {/* Grid layout for content and image */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0">
+        {/* Hero content wrapper - flex layout for proper alignment */}
+        <div className="relative z-10 flex flex-col lg:flex-row items-stretch lg:items-center gap-0">
           {/* Left column: Text content */}
-          <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-20 lg:px-12 lg:py-[100px]">
-            <div className="max-w-[420px]">
+          <div className="w-full lg:w-auto lg:flex-shrink-0 px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-[100px]">
+            <div className="max-w-[480px]">
               <h1 className="mb-6 text-[clamp(36px,5.5vw,62px)] font-bold leading-[1.08] tracking-[-0.02em] text-white">
                 More Than Calls,
                 <br />
@@ -45,7 +48,7 @@ export function Hero() {
               <p className="mb-4 text-[clamp(18px,2.2vw,24px)] font-semibold text-white">
                 Smart Agents. Seamless Support. For Every Industry.
               </p>
-              <p className="mb-10 max-w-[420px] text-[16px] leading-[1.6] text-white/85">
+              <p className="mb-10 text-[16px] leading-[1.6] text-white/85">
                 CallDeals deploys elite, college-educated professionals into your
                 business in 72 hours. We combine high-caliber talent with smart
                 processes to drive revenue and cut costs by 70%.
@@ -60,12 +63,12 @@ export function Hero() {
           </div>
 
           {/* Right column: Agent image (hidden on mobile, visible on lg+) */}
-          <div className="hidden lg:flex items-end justify-center py-[100px] pr-8">
+          <div className="hidden lg:flex lg:flex-shrink-0 items-center justify-center py-[100px] px-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-s4ZM7uH36Z0A72As84C2Ngb1INHFIE.png"
               alt="CallDeals support agent wearing headphones"
-              className="h-[400px] w-auto object-contain object-bottom"
+              className="h-[450px] w-auto object-contain"
             />
           </div>
         </div>
