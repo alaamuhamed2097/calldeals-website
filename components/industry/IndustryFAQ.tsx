@@ -25,7 +25,7 @@ export function IndustryFAQ({ questions }: { questions: IndustryQuestion[] }) {
               Everything you need to know before getting started. Still have a
               question? Reach out and we&apos;ll walk you through it.
             </p>
-            <Button href="#contact" variant="navy" className="px-[34px] py-3.5 text-base">
+            <Button href="/contact" variant="navy" className="px-[34px] py-3.5 text-base">
               Contact for Help
             </Button>
           </Reveal>

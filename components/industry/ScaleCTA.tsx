@@ -22,10 +22,10 @@ export function ScaleCTA({ industryName }: { industryName: string }) {
             — with weekly reporting and a free replacement guarantee.
           </p>
           <div className="relative flex flex-wrap items-center justify-center gap-4">
-            <Button href="#contact" variant="white" className="px-10 py-4 text-[17px]">
+            <Button href="/contact" variant="white" className="px-10 py-4 text-[17px]">
               Let&apos;s Talk
             </Button>
-            <Button href="#contact" variant="outlineLight" className="px-10 py-4 text-[17px]">
+            <Button href="/contact" variant="outlineLight" className="px-10 py-4 text-[17px]">
               Book a Demo
             </Button>
           </div>

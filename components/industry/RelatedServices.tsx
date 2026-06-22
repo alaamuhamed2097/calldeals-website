@@ -38,7 +38,7 @@ export function RelatedServices({ solutions }: { solutions: IndustrySolution[] }
                     {solution.shortDescription}
                   </p>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="inline-flex items-center gap-1.5 self-start text-[15px] font-semibold text-cyan no-underline"
                   >
                     Learn More
@@ -53,12 +53,12 @@ export function RelatedServices({ solutions }: { solutions: IndustrySolution[] }
         </div>
 
         <Reveal variant="fade-in" className="mt-12">
-          <div className="flex flex-col items-center justify-between gap-5 rounded-[20px] bg-[linear-gradient(120deg,#0098D2_0%,#00749f_100%)] px-7 py-7 text-white sm:flex-row sm:px-10">
+          <div className="flex flex-col items-center justify-between gap-5 rounded-[20px] bg-[linear-gradient(120deg,#0087A5_0%,#006E8A_100%)] px-7 py-7 text-white sm:flex-row sm:px-10">
             <p className="text-[clamp(20px,2.4vw,28px)] font-semibold">
               Book your free strategy session
             </p>
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex h-[56px] flex-none items-center justify-center rounded-full bg-navy px-8 text-[16px] font-medium text-white no-underline transition-all hover:-translate-y-0.5 hover:bg-ink"
             >
               Free Strategy Call
