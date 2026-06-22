@@ -50,7 +50,7 @@ export function TalentPool() {
               ))}
             </div>
 
-            <Button href="#contact" className="px-[34px] py-3.5 text-base">
+            <Button href="/contact" className="px-[34px] py-3.5 text-base">
               Book a Strategy Call
             </Button>
           </div>

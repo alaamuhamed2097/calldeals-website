@@ -23,7 +23,7 @@ export function FAQ() {
               likely have some questions. Discover our most commonly asked
               questions here, or feel free to contact us using any method below.
             </p>
-            <Button href="#contact" variant="navy" className="px-[34px] py-3.5 text-base">
+            <Button href="/contact" variant="navy" className="px-[34px] py-3.5 text-base">
               Contact for Help
             </Button>
           </div>

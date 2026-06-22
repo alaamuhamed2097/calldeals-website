@@ -66,7 +66,7 @@ export function IndustryExpertise() {
           </div>
 
           {/* Right: stat card */}
-          <div className="rounded-[22px] bg-[linear-gradient(160deg,#16B6F1_0%,#0098D2_100%)] p-7 text-white shadow-[0_30px_60px_-34px_rgba(0,150,210,0.7)] sm:p-11">
+          <div className="rounded-[22px] bg-[linear-gradient(160deg,#0087A5_0%,#006E8A_100%)] p-7 text-white shadow-[0_30px_60px_-34px_rgba(0,110,138,0.6)] sm:p-11">
             <h3 className="mb-[30px] text-[clamp(22px,2.4vw,30px)] font-semibold">
               {active.cardTitle}
             </h3>
@@ -89,7 +89,7 @@ export function IndustryExpertise() {
               ))}
             </div>
             <Button
-              href="#contact"
+              href="/contact"
               variant="outlineLight"
               className="mt-[34px] px-[34px] py-[13px] text-[15px]"
             >
@@ -99,7 +99,7 @@ export function IndustryExpertise() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button href="#contact" className="px-[38px] py-[15px] text-base">
+          <Button href="/contact" className="px-[38px] py-[15px] text-base">
             View All Industries
           </Button>
         </div>

@@ -2,9 +2,9 @@ import { Container } from "../ui/Container";
 import { Reveal } from "../ui/Reveal";
 
 const STEPS = [
-  { bg: "#00efe3", label: "Book a personalized strategy session" },
-  { bg: "#55d4f4", label: "Co-create your success plan" },
-  { bg: "#00aeef", label: "Get indispensable talent & resources" },
+  { bg: "#5BC7D9", label: "Book a personalized strategy session" },
+  { bg: "#2AA5BE", label: "Co-create your success plan" },
+  { bg: "#0087A5", label: "Get indispensable talent & resources" },
 ];
 
 /** Static "Get Started" — 3 large colored step cards (Figma layout). */

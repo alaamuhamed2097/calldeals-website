@@ -12,15 +12,15 @@ import type {
 export const navLinks: NavLink[] = [
   { label: "Solutions", href: "/solutions", hasDropdown: true },
   { label: "Industries", href: "/industries", hasDropdown: true },
-  { label: "About", href: "/about", hasDropdown: true },
+  { label: "Resources", href: "/about", hasDropdown: true },
   { label: "Pricing", href: "/pricing" },
 ];
 
 export const heroStats: HeroStat[] = [
-  { value: "9", suffix: "+", label: "Language Supported" },
+  { value: "12", suffix: "+", label: "Languages Supported" },
   { value: "950", suffix: "+", label: "Clients Served" },
-  { prefix: "$", value: "80", suffix: "M", label: "Saved by our clients" },
-  { value: "11", suffix: "+", label: "industries served" },
+  { prefix: "$", value: "2", suffix: "M+", label: "Saved by our clients" },
+  { value: "11", suffix: "+", label: "Industries Served" },
 ];
 
 export const solutions: Solution[] = [

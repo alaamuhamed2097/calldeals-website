@@ -14,7 +14,7 @@ export function PageHeader({
       aria-label={title}
       className="bg-white px-4 pt-4 sm:px-6 sm:pt-6 lg:px-12 lg:pt-7"
     >
-      <div className="relative mx-auto max-w-site overflow-hidden rounded-[26px] bg-[linear-gradient(118deg,#13B4F0_0%,#02A6E2_52%,#0098D2_100%)] shadow-[0_30px_70px_-38px_rgba(0,150,210,0.7)]">
+      <div className="relative mx-auto max-w-site overflow-hidden rounded-[26px] bg-[linear-gradient(118deg,#0087A5_0%,#007A96_52%,#006E8A_100%)] shadow-[0_30px_70px_-38px_rgba(0,110,138,0.6)]">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.18),transparent_42%)]"

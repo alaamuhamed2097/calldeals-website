@@ -17,8 +17,8 @@ const config: Config = {
         ice: "#CCEFFC",
         mint: "#34C759",
         cyan: {
-          DEFAULT: "#00AEEF",
-          dark: "#0098D2",
+          DEFAULT: "#0087A5",
+          dark: "#006E8A",
         },
         midnight: {
           DEFAULT: "#0B1F3C",
