@@ -4,7 +4,7 @@ import { Button } from "./ui/Button";
 export function ClientResults() {
   return (
     <section aria-label="Client results" className="bg-white">
-      <Container className="pt-14 sm:pt-20 lg:pt-24">
+      <Container className="pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-28 lg:pb-28">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <h2 className="mb-[18px] text-[clamp(28px,3.4vw,42px)] font-bold leading-[1.1] tracking-[-0.02em] text-navy">

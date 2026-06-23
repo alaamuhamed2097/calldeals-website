@@ -23,7 +23,7 @@ export default function AboutPage() {
       />
 
       <section aria-label="Our story" className="bg-white">
-        <Container className="pt-14 sm:pt-20">
+        <Container className="pt-14 pb-16 sm:pt-20 sm:pb-20 lg:pb-28">
           <div className="mx-auto max-w-[760px] space-y-6">
             {aboutStory.map((paragraph) => (
               <p key={paragraph} className="text-[18px] leading-[1.7] text-slateblue">

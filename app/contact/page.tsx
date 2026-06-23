@@ -20,7 +20,7 @@ export default function ContactPage() {
   return (
     <SiteShell>
       <section aria-label="Contact" className="bg-white">
-        <Container className="py-16 sm:py-20 lg:py-24">
+        <Container className="py-16 sm:py-20 lg:py-28">
           <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
 
             {/* Left: Let's Talk content */}

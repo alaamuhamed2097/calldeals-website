@@ -28,7 +28,7 @@ function SecurityCard({ items }: { items: SecurityItem[] }) {
 export function Security() {
   return (
     <section aria-label="Security and compliance" className="bg-white">
-      <Container className="pt-14 sm:pt-20 lg:pt-24">
+      <Container className="pt-14 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-28">
         <h2 className="mb-2 text-[clamp(30px,4vw,56px)] font-bold tracking-[-0.04em] text-navy">
           Security &amp; Compliance
         </h2>
