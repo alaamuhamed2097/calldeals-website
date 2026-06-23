@@ -12,7 +12,7 @@ export function FAQ() {
 
   return (
     <section id="faq" aria-label="Frequently asked questions" className="scroll-mt-24 bg-white">
-      <Container className="pt-14 sm:pt-20 lg:pt-24">
+      <Container className="pt-14 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-28">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <h2 className="mb-4 text-[clamp(28px,3.4vw,40px)] font-bold leading-[1.12] tracking-[-0.02em] text-navy">

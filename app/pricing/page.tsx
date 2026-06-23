@@ -109,7 +109,9 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <FAQ />
+      <div className="pb-16 sm:pb-20 lg:pb-28">
+        <FAQ />
+      </div>
     </SiteShell>
   );
 }

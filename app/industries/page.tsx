@@ -32,7 +32,7 @@ export default async function IndustriesPage() {
 
       {industries.length > 0 ? (
         <section aria-label="Browse industries" className="scroll-mt-24 bg-white">
-          <Container className="pt-4 sm:pt-6">
+          <Container className="pt-4 pb-16 sm:pt-6 sm:pb-20 lg:pb-28">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {industries.map((industry, i) => {
                 const image = mediaUrl(industry.image ?? industry.subImage, "Industries");
