@@ -4,7 +4,7 @@ export function StrategyCTA() {
   return (
     <section
       aria-label="Book a strategy call"
-      className="bg-white px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-[90px]"
+      className="bg-white px-4 pt-16 pb-16 sm:px-6 sm:pt-20 sm:pb-20 lg:px-12 lg:pt-28 lg:pb-28"
     >
       <div className="relative mx-auto max-w-site overflow-hidden rounded-[24px] bg-[linear-gradient(120deg,#0087A5_0%,#006E8A_100%)] px-6 py-10 text-center sm:py-16 lg:py-[72px]">
         <div

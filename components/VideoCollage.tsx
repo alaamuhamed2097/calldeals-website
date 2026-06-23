@@ -3,7 +3,7 @@ import { Container } from "./ui/Container";
 /** "How it works" collaboration workflow section. */
 export function VideoCollage() {
   return (
-    <section aria-label="How it works" className="bg-[#E8F5FB] py-12 sm:py-16 lg:py-24">
+    <section aria-label="How it works" className="bg-[#E8F5FB] py-16 sm:py-20 lg:py-28">
       <Container>
         <div className="w-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
