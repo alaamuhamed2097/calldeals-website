@@ -19,11 +19,22 @@ export function Hero() {
           <polygon points="0,0 0,620 660,620 0,0" />
         </svg>
 
-        {/* Decorative wave lines - positioned only on left */}
+        {/* Inverted triangle - bottom decorative element */}
         <svg
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full opacity-[0.08]"
-          style={{ width: "55%", mixBlendMode: "multiply" }}
+          className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full opacity-[0.06]"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 400"
+          fill="none"
+        >
+          <polygon points="0,0 1440,0 720,400" fill="#0D5F7A" opacity="0.1" />
+        </svg>
+
+        {/* Decorative wave lines - positioned on left with white opacity */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full opacity-[0.15]"
+          style={{ width: "55%", mixBlendMode: "screen" }}
           preserveAspectRatio="xMidYMid slice"
           viewBox="0 0 1440 600"
           fill="none"
@@ -35,9 +46,38 @@ export function Hero() {
                 1080 + i * 40
               } ${360 - i * 20}`}
               stroke="white"
-              strokeWidth="1.4"
+              strokeWidth="2"
             />
           ))}
+        </svg>
+
+        {/* Bottom wave decoration */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 left-0 w-full opacity-[0.08]"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 200"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="white" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,50 Q360,10 720,50 T1440,50 L1440,200 L0,200 Z"
+            fill="url(#waveGradient)"
+            stroke="white"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M0,80 Q360,40 720,80 T1440,80 L1440,200 L0,200 Z"
+            fill="none"
+            stroke="white"
+            strokeWidth="1"
+            opacity="0.6"
+          />
         </svg>
 
         {/* Hero content - positioned above backgrounds */}
