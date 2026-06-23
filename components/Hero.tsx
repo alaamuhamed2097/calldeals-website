@@ -22,12 +22,13 @@ export function Hero() {
         {/* Inverted triangle - bottom decorative element */}
         <svg
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full opacity-[0.06]"
+          className="pointer-events-none absolute bottom-0 left-0 right-0 w-full"
+          style={{ height: "200px" }}
           preserveAspectRatio="none"
-          viewBox="0 0 1440 400"
+          viewBox="0 0 1440 200"
           fill="none"
         >
-          <polygon points="0,0 1440,0 720,400" fill="#0D5F7A" opacity="0.1" />
+          <polygon points="0,0 1440,0 720,200" fill="#0D5F7A" opacity="0.12" />
         </svg>
 
         {/* Decorative wave lines - positioned on left with white opacity */}
