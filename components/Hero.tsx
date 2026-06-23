@@ -8,7 +8,7 @@ export function Hero() {
         {/* Left section: Dark teal background */}
         <div className="absolute left-0 top-0 bottom-0 bg-[#0D5F7A] lg:w-[55%]" />
         
-        {/* Diagonal separator SVG overlay */}
+        {/* Diagonal separator SVG overlay - from bottom-left to top-right */}
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 h-full w-full"
@@ -16,19 +16,7 @@ export function Hero() {
           viewBox="0 0 1440 620"
           fill="#0D5F7A"
         >
-          <polygon points="0,0 0,620 660,620 0,0" />
-        </svg>
-
-        {/* Inverted triangle - bottom decorative element */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-0 right-0 w-full"
-          style={{ height: "200px" }}
-          preserveAspectRatio="none"
-          viewBox="0 0 1440 200"
-          fill="none"
-        >
-          <polygon points="0,0 1440,0 720,200" fill="#0D5F7A" opacity="0.12" />
+          <polygon points="0,620 0,0 940,0 0,620" />
         </svg>
 
         {/* Decorative wave lines - positioned on left with white opacity */}
