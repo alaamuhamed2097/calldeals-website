@@ -6,8 +6,10 @@ import { Reveal } from "../ui/Reveal";
 /** "What Our Clients Are Saying" — renders nothing when there are no reviews. */
 export function IndustryTestimonials({
   testimonials,
+  mediaFolder = "IndustryTestimonials",
 }: {
   testimonials: IndustryTestimonial[];
+  mediaFolder?: string;
 }) {
   if (!testimonials.length) return null;
 
@@ -22,7 +24,7 @@ export function IndustryTestimonials({
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => {
-            const avatar = mediaUrl(t.image, "IndustryTestimonials");
+            const avatar = mediaUrl(t.image, mediaFolder);
             const rating = Math.max(0, Math.min(5, t.rate));
             return (
               <Reveal key={t.id} variant="fade-up" delay={(i % 3) * 90}>

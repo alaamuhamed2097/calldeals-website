@@ -17,9 +17,9 @@ export const navLinks: NavLink[] = [
 ];
 
 export const heroStats: HeroStat[] = [
-  { value: "12", suffix: "+", label: "Languages Supported" },
+  { value: "9", suffix: "+", label: "Languages Supported" },
   { value: "950", suffix: "+", label: "Clients Served" },
-  { prefix: "$", value: "2", suffix: "M+", label: "Saved by our clients" },
+  { prefix: "$", value: "80", suffix: "M", label: "Saved by our clients" },
   { value: "11", suffix: "+", label: "Industries Served" },
 ];
 
@@ -340,39 +340,40 @@ export const footerColumns: FooterColumn[] = [
     title: "Important Links",
     links: [
       { label: "Home", href: "/" },
-      { label: "Explore Solutions", href: "/solutions" },
-      { label: "Explore Industries", href: "/industries" },
+      { label: "Solutions", href: "/solutions" },
+      { label: "Industries", href: "/industries" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "Customer Services", href: "/solutions" },
-      { label: "General Assistant", href: "/solutions" },
-      { label: "Tailored", href: "/solutions" },
-      { label: "Transaction", href: "/solutions" },
-      { label: "Bookkeeping", href: "/solutions" },
-      { label: "Sales", href: "/solutions" },
-      { label: "Marketing", href: "/solutions" },
-      { label: "HR & PEO", href: "/solutions" },
-      { label: "Inside Sales", href: "/solutions" },
+      { label: "General Virtual Assistant", href: "/solutions" },
+      { label: "Tailored Virtual Assistant", href: "/solutions" },
+      { label: "Customer service", href: "/solutions" },
       { label: "Administrative", href: "/solutions" },
+      { label: "Marketing", href: "/solutions" },
+      { label: "Sales Development", href: "/solutions" },
+      { label: "Inside Sale", href: "/solutions" },
+      { label: "HR & PEO", href: "/solutions" },
+      { label: "Transaction & POs", href: "/solutions" },
+      { label: "Bookkeeping", href: "/solutions" },
       { label: "Virtual Receptionist", href: "/solutions" },
     ],
   },
   {
     title: "Industries",
     links: [
+      { label: "Real Estate", href: "/industries" },
       { label: "Healthcare", href: "/industries" },
-      { label: "E-commerce", href: "/industries" },
       { label: "Insurance", href: "/industries" },
       { label: "Technology", href: "/industries" },
-      { label: "Real Estate", href: "/industries" },
+      { label: "E-commerce", href: "/industries" },
+      { label: "Finance", href: "/industries" },
+      { label: "Property Management", href: "/industries" },
       { label: "Marketing Agencies", href: "/industries" },
-      { label: "Property", href: "/industries" },
+      { label: "HR & PEO", href: "/industries" },
       { label: "Mortgage & Lending", href: "/industries" },
       { label: "Law Firms", href: "/industries" },
-      { label: "Finance", href: "/industries" },
     ],
   },
   {
@@ -380,8 +381,13 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Contact us", href: "/contact" },
       { label: "About us", href: "/about" },
+    ],
+  },
+  {
+    title: "Get Started",
+    links: [
       { label: "Book A Demo", href: "/contact" },
-      { label: "How It Works", href: "/about" },
+      { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing plans", href: "/pricing" },
       { label: "Privacy Policy", href: "#" },
       { label: "Terms & Conditions", href: "#" },

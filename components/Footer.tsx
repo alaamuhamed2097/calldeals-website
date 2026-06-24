@@ -12,9 +12,9 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="scroll-mt-24 bg-[#0F2A4A] text-white">
+    <footer id="contact" className="scroll-mt-24 bg-[#0D5F7A] text-white">
       <Container className="pt-16 sm:pt-20 lg:pt-[66px]">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-[1.4fr_1fr_1.1fr_1.1fr_0.9fr_0.9fr]">
           {/* Brand + contact info */}
           <div>
             <Logo variant="mono" className="mb-8 h-12" />
@@ -33,7 +33,7 @@ export function Footer() {
           {/* Footer columns */}
           {footerColumns.map((column) => (
             <nav key={column.title} aria-label={column.title}>
-              <h3 className="mb-5 text-[15px] font-semibold text-white uppercase tracking-wide">
+              <h3 className="mb-5 text-[15px] font-semibold text-white">
                 {column.title}
               </h3>
               <ul className="m-0 flex list-none flex-col gap-3 p-0">

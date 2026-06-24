@@ -13,7 +13,7 @@ export function PartnerLogos({ partners }: { partners: IndustryPartner[] }) {
         <Reveal variant="fade-in">
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 opacity-80">
             {partners.map((partner) => {
-              const logo = mediaUrl(partner.logo, "IndustryPartners");
+              const logo = mediaUrl(partner.logo, "Partners");
               return logo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img

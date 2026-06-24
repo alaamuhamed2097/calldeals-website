@@ -89,17 +89,17 @@ export function IndustryExpertise() {
               ))}
             </div>
             <Button
-              href="/contact"
+              href="/industries"
               variant="outlineLight"
               className="mt-[34px] px-[34px] py-[13px] text-[15px]"
             >
-              View Industry
+              View {active.label}
             </Button>
           </div>
         </div>
 
         <div className="mt-12 text-center">
-          <Button href="/contact" className="px-[38px] py-[15px] text-base">
+          <Button href="/industries" className="px-[38px] py-[15px] text-base">
             View All Industries
           </Button>
         </div>

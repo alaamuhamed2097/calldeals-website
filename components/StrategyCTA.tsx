@@ -20,7 +20,7 @@ export function StrategyCTA() {
           cost — with no pitch and no pressure.
         </p>
         <Button href="/contact" variant="white" className="relative px-[42px] py-4 text-[17px]">
-          Book Meeting
+          Let&apos;s Talk
         </Button>
       </div>
     </section>

@@ -6,7 +6,7 @@ export function ScaleCTA({ industryName }: { industryName: string }) {
   return (
     <section
       aria-label="Get started"
-      className="bg-white px-4 pt-14 sm:px-6 sm:pt-20 lg:px-12 lg:pt-24"
+      className="bg-white px-4 pt-14 pb-16 sm:px-6 sm:pt-20 sm:pb-20 lg:px-12 lg:pt-24 lg:pb-28"
     >
       <Reveal variant="scale-in" className="mx-auto max-w-site">
         <div className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(120deg,#0B1F3C_0%,#0078A0_100%)] px-6 py-14 text-center sm:py-16 lg:py-[84px]">

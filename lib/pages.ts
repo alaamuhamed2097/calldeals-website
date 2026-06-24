@@ -79,6 +79,25 @@ export const aboutValues: ValueItem[] = [
   },
 ];
 
+export interface MissionFeature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+/** The blue "people · process · technology" band on the About page. */
+export const aboutMission = {
+  statement:
+    "We connect people, process, and technology to deliver seamless experiences worldwide.",
+  features: [
+    { icon: "◍", title: "Vetted Talent", description: "Top 1% professionals, background-verified before any client work." },
+    { icon: "⚡", title: "72-Hour Deploy", description: "Briefed, trained, and active within three days of signing." },
+    { icon: "◆", title: "Process-Driven", description: "Repeatable systems and playbooks behind every agent." },
+    { icon: "⛨", title: "Secure by Default", description: "Enterprise-grade data protection and role-based access." },
+    { icon: "✦", title: "Accountable", description: "Weekly reporting and a free replacement guarantee." },
+  ] as MissionFeature[],
+};
+
 export const aboutStory = [
   "We did not build CallDeals in a boardroom. We built it in the field, after years of running real estate investing campaigns and learning firsthand what it costs to rely on the wrong calling team.",
   "CallDeals was not built by investors looking at a market gap on a spreadsheet. It was built by people who had operated on the ground — managing pipelines, running teams, and experiencing firsthand the difference a high-caliber, accountable professional makes.",

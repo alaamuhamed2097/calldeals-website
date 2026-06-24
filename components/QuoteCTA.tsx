@@ -22,7 +22,7 @@ export function QuoteCTA() {
           24 hours, and have your agent active within 72 hours of signing.
         </p>
         <Button href="/contact" variant="white" className="relative px-11 py-4 text-[17px]">
-          Book Meeting
+          Let&apos;s Talk
         </Button>
       </div>
     </section>

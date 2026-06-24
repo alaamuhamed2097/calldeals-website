@@ -2,6 +2,7 @@ import type {
   ApiEnvelope,
   IndustryDetail,
   IndustrySummary,
+  SolutionDetail,
   SolutionSummary,
 } from "@/types";
 
@@ -14,7 +15,6 @@ import type {
  */
 
 const API_BASE = (process.env.API_BASE_URL ?? "http://localhost:5050").replace(/\/+$/, "");
-const MEDIA_BASE = (process.env.MEDIA_BASE_URL ?? API_BASE).replace(/\/+$/, "");
 
 /** Revalidate window for ISR (seconds). */
 const REVALIDATE = 300;
@@ -42,10 +42,14 @@ export function mediaUrl(
   if (!value) return null;
   if (/^https?:\/\//i.test(value)) return value;
   if (!isImageFile(value)) return null;
+  // Resolve to a same-origin `/media/...` path that Next proxies to the media
+  // host (see `rewrites` in next.config.mjs). Keeping it same-origin avoids
+  // self-signed cert rejections in the browser and the API's CORS policy.
   const clean = value.replace(/^\/+/, "");
-  if (clean.includes("/")) return `${MEDIA_BASE}/${clean}`;
-  if (folder) return `${MEDIA_BASE}/uploads/${folder}/${clean}`;
-  return `${MEDIA_BASE}/uploads/${clean}`;
+  if (clean.startsWith("uploads/")) return `/media/${clean.slice("uploads/".length)}`;
+  if (clean.includes("/")) return `/media/${clean}`;
+  if (folder) return `/media/${folder}/${clean}`;
+  return `/media/${clean}`;
 }
 
 /** Thrown for real API failures (outage, 5xx, success=false) — NOT for 404. */
@@ -113,4 +117,43 @@ export async function getSolutions(): Promise<SolutionSummary[]> {
   } catch {
     return [];
   }
+}
+
+/**
+ * URL-safe slug from a solution name. Solutions have no slug/`hashTag` field in
+ * the CMS, so the public `/solutions/[slug]` route derives one from the name
+ * (e.g. "Call Center" → "call-center") and resolves it back via `getSolutions()`.
+ */
+export function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Fetch a single solution (with related sections) by its CMS id. */
+export async function getSolutionById(id: string): Promise<SolutionDetail | null> {
+  return apiGet<SolutionDetail>(`/api/Solution/${encodeURIComponent(id)}`);
+}
+
+/**
+ * Resolve a name-derived slug to a full solution detail. Since the API has no
+ * by-slug endpoint, we match the slug against the solution list, then fetch the
+ * detail by id. Returns `null` when no solution matches the slug.
+ */
+export async function getSolutionBySlug(slug: string): Promise<SolutionDetail | null> {
+  const match = (await getSolutions()).find((s) => slugify(s.name) === slug);
+  if (!match) return null;
+
+  // The detail endpoint can fail on its sub-table queries (known backend bug).
+  // Degrade gracefully to summary-only so the page still renders the hero/intro;
+  // related sections fill in automatically once the API returns them.
+  try {
+    const detail = await getSolutionById(match.id);
+    if (detail) return detail;
+  } catch {
+    /* fall through to summary-only */
+  }
+  return { solution: match, features: [], testimonials: [], questions: [], blogs: [] };
 }

@@ -143,3 +143,25 @@ export interface IndustryDetail {
   blogs: IndustryBlog[];
   solutions: IndustrySolution[];
 }
+
+/* Solution detail — same shape as the industry sub-entities (the .NET
+   `GET /api/Solution/{id}` returns { solution, features, testimonials,
+   questions, blogs }). Solutions have no partners and no slug field. */
+export interface SolutionProperty {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+}
+
+export type SolutionTestimonial = IndustryTestimonial;
+export type SolutionQuestion = IndustryQuestion;
+export type SolutionBlog = IndustryBlog;
+
+export interface SolutionDetail {
+  solution: SolutionSummary;
+  features: SolutionProperty[];
+  testimonials: SolutionTestimonial[];
+  questions: SolutionQuestion[];
+  blogs: SolutionBlog[];
+}
