@@ -170,7 +170,11 @@ export async function getSolutionById(id: string): Promise<SolutionDetail | null
  * detail by id. Returns `null` when no solution matches the slug.
  */
 export async function getSolutionBySlug(slug: string): Promise<SolutionDetail | null> {
-  const match = (await getSolutions()).find((s) => slugify(s.name) === slug);
+  // Use the throwing `apiGet` (not soft-failing `getSolutions`) so a real API
+  // outage surfaces as the error boundary — consistent with industries —
+  // instead of a misleading 404. A successful-but-empty list still yields null.
+  const list = (await apiGet<SolutionSummary[]>("/api/Solution")) ?? [];
+  const match = list.find((s) => slugify(s.name) === slug);
   if (!match) return null;
 
   // The detail endpoint can fail on its sub-table queries (known backend bug).

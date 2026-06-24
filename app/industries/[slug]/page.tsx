@@ -56,7 +56,14 @@ export default async function IndustryPage({
   const detail = await getIndustryBySlug(slug);
   if (!detail) notFound(); // genuine 404 only — outages have already thrown above
 
-  const { industry, features, solutions, testimonials, partners, questions } = detail;
+  // Coerce sub-collections to arrays — the API can return null for an empty
+  // relation, and the child components call `.length` on them.
+  const { industry } = detail;
+  const features = detail.features ?? [];
+  const solutions = detail.solutions ?? [];
+  const testimonials = detail.testimonials ?? [];
+  const partners = detail.partners ?? [];
+  const questions = detail.questions ?? [];
 
   return (
     <SiteShell>

@@ -11,7 +11,12 @@ import { NextRequest } from "next/server";
  *
  * `mediaUrl()` in `lib/api.ts` builds the `/media/...` URLs this route serves.
  */
-const MEDIA_BASE = (process.env.MEDIA_BASE_URL ?? "http://localhost:5209").replace(/\/+$/, "");
+// Normalise the configured base so the final URL has exactly one `/uploads/`
+// segment, whether MEDIA_BASE_URL is set to the host root or already ends in
+// `/uploads` (both conventions are used across environments).
+const MEDIA_ROOT = (process.env.MEDIA_BASE_URL ?? "http://localhost:5209")
+  .replace(/\/+$/, "")
+  .replace(/\/uploads$/i, "");
 
 /** Cache resolved images at the edge/proxy for an hour. */
 const CACHE_CONTROL = "public, max-age=3600, stale-while-revalidate=86400";
@@ -23,7 +28,7 @@ export async function GET(
   const { path } = await params;
   if (!path?.length) return new Response(null, { status: 404 });
 
-  const target = `${MEDIA_BASE}/uploads/${path.map(encodeURIComponent).join("/")}`;
+  const target = `${MEDIA_ROOT}/uploads/${path.map(encodeURIComponent).join("/")}`;
 
   let upstream: Response;
   try {

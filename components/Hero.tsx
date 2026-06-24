@@ -1,111 +1,49 @@
 import { HeroStats } from "./HeroStats";
+import { Container } from "./ui/Container";
 
+/**
+ * Hero — the artwork (blue background + agent + wave lines) is a single image
+ * at `/assets/hero-bg.png`; the copy and CTA are overlaid on the left. The base
+ * background colour matches the image's left edge so the text area stays solid
+ * blue when the image is cropped by `cover` on narrow screens.
+ */
 export function Hero() {
   return (
     <section aria-label="Hero">
-      {/* Hero wrapper */}
-      <div className="relative overflow-hidden bg-[#C5E9F7]" style={{ minHeight: "620px" }}>
-        {/* Left section: Dark teal background */}
-        <div className="absolute left-0 top-0 bottom-0 bg-[#0D5F7A] lg:w-[55%]" />
-        
-        {/* Diagonal separator SVG overlay - from bottom-left to top-right */}
-        <svg
+      <div
+        className="relative bg-[#066286] bg-cover bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/hero-bg.jpg')", backgroundPosition: "right center" }}
+      >
+        {/* Subtle left scrim so copy stays readable over the artwork on small screens */}
+        <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full"
-          preserveAspectRatio="none"
-          viewBox="0 0 1440 620"
-          fill="#0D5F7A"
-        >
-          <polygon points="0,620 0,0 940,0 0,620" />
-        </svg>
-
-        {/* Decorative wave lines - positioned on left with white opacity */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full opacity-[0.15]"
-          style={{ width: "55%", mixBlendMode: "screen" }}
-          preserveAspectRatio="xMidYMid slice"
-          viewBox="0 0 1440 600"
-          fill="none"
-        >
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <path
-              key={i}
-              d={`M -80 ${120 + i * 95} Q ${380 + i * 30} ${520 + i * 30}, ${
-                1080 + i * 40
-              } ${360 - i * 20}`}
-              stroke="white"
-              strokeWidth="2"
-            />
-          ))}
-        </svg>
-
-        {/* Bottom wave decoration */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 left-0 w-full opacity-[0.08]"
-          preserveAspectRatio="none"
-          viewBox="0 0 1440 200"
-          fill="none"
-        >
-          <defs>
-            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="white" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,50 Q360,10 720,50 T1440,50 L1440,200 L0,200 Z"
-            fill="url(#waveGradient)"
-            stroke="white"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M0,80 Q360,40 720,80 T1440,80 L1440,200 L0,200 Z"
-            fill="none"
-            stroke="white"
-            strokeWidth="1"
-            opacity="0.6"
-          />
-        </svg>
-
-        {/* Hero content - positioned above backgrounds */}
-        <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-0 h-full">
-          {/* Left column: Text content */}
-          <div className="w-full lg:w-[55%] flex items-center px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-20">
-            <div className="max-w-[450px]">
-              <h1 className="mb-6 text-[clamp(32px,5vw,56px)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,98,134,0.94)_0%,rgba(6,98,134,0.78)_50%,rgba(6,98,134,0.45)_75%,rgba(6,98,134,0.15)_100%)] lg:bg-none"
+        />
+        <Container className="relative">
+          <div className="flex min-h-[460px] items-center py-16 sm:min-h-[560px] lg:min-h-[640px]">
+            <div className="max-w-[520px]">
+              <h1 className="mb-5 text-[clamp(30px,5vw,56px)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
                 More Than Calls,
                 <br />
                 Power Business Growth
               </h1>
-              <p className="mb-4 text-[16px] sm:text-[18px] font-semibold text-white">
+              <p className="mb-4 text-[16px] font-semibold text-white sm:text-[18px]">
                 Smart Agents. Seamless Support. For Every Industry.
               </p>
-              <p className="mb-10 text-[14px] sm:text-[15px] leading-[1.6] text-white/90">
+              <p className="mb-9 max-w-[440px] text-[14px] leading-[1.6] text-white/90 sm:text-[15px]">
                 CallDeals deploys elite, college-educated professionals into your
                 business in 72 hours. We combine high-caliber talent with smart
                 processes to drive revenue and cut costs by 70%.
               </p>
               <a
-                href="#contact"
-                className="inline-flex h-[52px] items-center justify-center rounded-full bg-white px-10 text-[16px] font-semibold text-[#0D5F7A] no-underline shadow-[0_12px_24px_-8px_rgba(0,40,70,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(0,40,70,0.4)]"
+                href="/contact"
+                className="inline-flex h-[52px] items-center justify-center rounded-full bg-white px-10 text-[16px] font-semibold text-[#0D5F7A] no-underline shadow-[0_12px_24px_-8px_rgba(0,40,70,0.35)] transition-all hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(0,40,70,0.45)]"
               >
                 Let&apos;s Talk
               </a>
             </div>
           </div>
-
-          {/* Right column: Large agent image */}
-          <div className="w-full lg:w-[45%] flex items-end justify-end overflow-hidden lg:pr-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%2027-kBY0YnTOlVUxrk2oS7nqAbmnScuYAZ.png"
-              alt="CallDeals support agent wearing headphones and holding cup"
-              className="h-[600px] w-auto object-contain object-bottom max-w-full"
-            />
-          </div>
-        </div>
+        </Container>
       </div>
 
       {/* Light-blue stats bar with scroll-triggered count-up */}
