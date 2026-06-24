@@ -1,10 +1,13 @@
 import type {
   ApiEnvelope,
+  Banner,
   IndustryDetail,
   IndustrySummary,
+  Partner,
   SolutionDetail,
   SolutionSummary,
 } from "@/types";
+import { BannerType } from "@/types";
 
 /**
  * Server-side CMS client for the Calldeals Dashboard (.NET) API.
@@ -117,6 +120,30 @@ export async function getSolutions(): Promise<SolutionSummary[]> {
   } catch {
     return [];
   }
+}
+
+/** Home partners/logos (soft-fails to `[]`). */
+export async function getPartners(): Promise<Partner[]> {
+  try {
+    return (await apiGet<Partner[]>("/api/Partner")) ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/** All banners (soft-fails to `[]`). */
+export async function getBanners(): Promise<Banner[]> {
+  try {
+    return (await apiGet<Banner[]>("/api/Banner")) ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/** The most recent "sub home banner" image, or `null` when none exists. */
+export async function getSubHomeBanner(): Promise<Banner | null> {
+  const banners = await getBanners();
+  return banners.find((b) => b.type === BannerType.SubHomeBanner) ?? null;
 }
 
 /**
