@@ -35,7 +35,7 @@ export async function Solutions() {
 
   return (
     <section id="solutions" aria-label="Our solutions" className="scroll-mt-24 bg-white">
-      <Container className="pt-16 pb-16 text-center sm:pt-20 sm:pb-20 lg:pt-28 lg:pb-28">
+      <Container className="pt-14 pb-14 text-center sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20">
         <Reveal variant="fade-up">
           <p className="text-[15px] font-medium tracking-[0.16em] text-slateblue">WHAT WE DO</p>
           <h2 className="mb-4 mt-[18px] text-[clamp(30px,3.6vw,44px)] font-semibold tracking-[-0.02em] text-navy">

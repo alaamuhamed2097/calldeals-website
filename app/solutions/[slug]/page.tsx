@@ -53,7 +53,12 @@ export default async function SolutionPage({
   const detail = await getSolutionBySlug(slug);
   if (!detail) notFound();
 
-  const { solution, features, testimonials, questions } = detail;
+  // Coerce sub-collections to arrays — the API can return null for an empty
+  // relation, and the child components call `.length` on them.
+  const { solution } = detail;
+  const features = detail.features ?? [];
+  const testimonials = detail.testimonials ?? [];
+  const questions = detail.questions ?? [];
 
   return (
     <SiteShell>

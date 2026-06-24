@@ -165,3 +165,20 @@ export interface SolutionDetail {
   questions: SolutionQuestion[];
   blogs: SolutionBlog[];
 }
+
+/** Home "Trusted by / Our Partners" logo (CMS `TbPartner`, folder `Partners`). */
+export interface Partner {
+  id: string;
+  logo: string | null;
+  name: string;
+}
+
+/** Banner type matches the .NET `BannerType` enum. */
+export const BannerType = { HomeBanner: 1, SubHomeBanner: 2 } as const;
+
+/** CMS banner image (folder `Banners`). */
+export interface Banner {
+  id: string;
+  image: string | null;
+  type: number;
+}

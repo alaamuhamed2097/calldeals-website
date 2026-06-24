@@ -1,4 +1,4 @@
-import { heroStats } from "@/lib/data";
+import { HeroStats } from "./HeroStats";
 
 export function Hero() {
   return (
@@ -108,21 +108,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Light-blue stats bar */}
-      <div className="bg-[#C5E9F7] px-4 sm:px-6 lg:px-12 py-8 sm:py-10">
-        <dl className="mx-auto max-w-site grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
-          {heroStats.map((stat, i) => (
-            <div key={stat.label} className="text-center">
-              <dd className="text-[clamp(24px,4vw,36px)] font-bold tracking-[-0.02em] text-[#0D5F7A]">
-                {stat.prefix && <span>{stat.prefix}</span>}
-                {stat.value}
-                {stat.suffix && <span>{stat.suffix}</span>}
-              </dd>
-              <dt className="mt-2 text-[13px] sm:text-[14px] text-[#2d6a85]">{stat.label}</dt>
-            </div>
-          ))}
-        </dl>
-      </div>
+      {/* Light-blue stats bar with scroll-triggered count-up */}
+      <HeroStats />
     </section>
   );
 }
